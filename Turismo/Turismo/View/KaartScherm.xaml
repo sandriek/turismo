@@ -1,0 +1,14 @@
+﻿<Page
+    x:Class="Turismo.KaartScherm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Turismo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Maps:Mapcontrol x:Name="Map" MapServiceToken="TWf70pkqTqFQpZHbZ2B9~EwuJrmaVK6VR5Y-GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbOBDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz"/>
+    </Grid>
+</Page>
