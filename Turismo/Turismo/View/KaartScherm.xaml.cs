@@ -26,12 +26,13 @@ namespace Turismo
     /// </summary>
     public sealed partial class KaartScherm : Page
     {
+        MapControl MapControl2 = new MapControl();
         public KaartScherm()
         {
             this.InitializeComponent();
-            MapControl MapControl2 = new MapControl();
             MapControl2.ZoomInteractionMode = MapInteractionMode.GestureAndControl;
             MapControl2.TiltInteractionMode = MapInteractionMode.GestureAndControl;
+            MapControl2.RotateInteractionMode = MapInteractionMode.GestureAndControl;
             MapControl2.MapServiceToken = "TWf70pkqTqFQpZHbZ2B9~EwuJrmaVK6VR5Y - GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbOBDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz";
             pageGrid.Children.Add(MapControl2);
             GetMyLocation();
@@ -50,7 +51,7 @@ namespace Turismo
             MapControl1.LandmarksVisible = true;
         }
 
-        public async void GetMyLocation()
+    private async void GetMyLocation()
         {
             var accessStatus = await Geolocator.RequestAccessAsync();
             switch (accessStatus)
@@ -63,9 +64,9 @@ namespace Turismo
                     Geopoint myLocation = pos.Coordinate.Point;
 
                     // Set the map location.
-                    MapControl1.Center = myLocation;
-                    MapControl1.ZoomLevel = 12;
-                    MapControl1.LandmarksVisible = true;
+                    MapControl2.Center = myLocation;
+                    MapControl2.ZoomLevel = 12;
+                    MapControl2.LandmarksVisible = true;
                     break;
 
                 case GeolocationAccessStatus.Denied:
