@@ -7,13 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton Icon="Emoji" Click="AppBarButton_Click"/>
-        </CommandBar>
-    </Page.BottomAppBar>
-    
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
-    </StackPanel>
+    <Grid Background="Teal">
+        <Image Source="ms-appx:///Assets/icon_small_256.png" 
+               Stretch="None" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center"/>
+    </Grid>
 </Page>
