@@ -19,7 +19,7 @@
        x:Name="MapControl1"            
        ZoomInteractionMode="GestureAndControl"
        TiltInteractionMode="GestureAndControl"   
-       MapServiceToken=" TWf70pkqTqFQpZHbZ2B9~EwuJrmaV
+       MapServiceToken="TWf70pkqTqFQpZHbZ2B9~EwuJrmaV
             K6VR5Y-GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbO
             BDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz"/>
     </Grid>
