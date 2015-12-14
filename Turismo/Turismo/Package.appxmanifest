@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="3948622a-3f0b-4d8c-8cce-6523bdce6f7b"
-    Publisher="CN=remco"
+    Name="db02ca6c-2691-44dd-b9f4-a4b6675a47b2"
+    Publisher="CN=Richard"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="3948622a-3f0b-4d8c-8cce-6523bdce6f7b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="db02ca6c-2691-44dd-b9f4-a4b6675a47b2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Turismo</DisplayName>
-    <PublisherDisplayName>remco</PublisherDisplayName>
+    <PublisherDisplayName>Richard</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="Turismo.KaartScherm"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Turismo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="TaalKnop"  Icon="World" Label="Taal selecteren" Click="TaalKnop_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
+    <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Maps:MapControl
+       x:Name="MapControl1"            
+       ZoomInteractionMode="GestureAndControl"
+       TiltInteractionMode="GestureAndControl"   
+       MapServiceToken="TWf70pkqTqFQpZHbZ2B9~EwuJrmaV
+            K6VR5Y-GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbO
+            BDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz"/>
+    </Grid>
+</Page>
