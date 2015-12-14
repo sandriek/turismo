@@ -7,6 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="KaartKnop" Icon="Map" Label="Naar kaart" Click="KaartKnop_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid Background="Teal">
         <Image Source="ms-appx:///Assets/icon_small_256.png" 
                Stretch="None" 

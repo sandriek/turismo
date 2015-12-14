@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Geolocation;
+using Turismo.View;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -45,7 +46,10 @@ namespace Turismo
             MapControl1.ZoomLevel = 12;
             MapControl1.LandmarksVisible = true;
         }
-
-
+        
+        private void TaalKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TaalScherm));
+        }
     }
 }

@@ -8,6 +8,12 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="TaalKnop"  Icon="World" Label="Taal selecteren" Click="TaalKnop_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    
     <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Maps:MapControl
        x:Name="MapControl1"            
