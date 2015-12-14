@@ -105,7 +105,6 @@
     <Compile Include="ViewModel\Components\Language.cs" />
     <Compile Include="ViewModel\Components\Location.cs" />
     <Compile Include="ViewModel\CurrentSession.cs" />
-    <Compile Include="ViewModel\Objects\EN_Description.cs" />
     <Compile Include="ViewModel\Objects\Help.cs" />
     <Compile Include="ViewModel\Objects\NL_Description.cs" />
     <Compile Include="ViewModel\Objects\Route.cs" />
