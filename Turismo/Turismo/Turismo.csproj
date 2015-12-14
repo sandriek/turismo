@@ -101,7 +101,16 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AppGlobal.cs" />
+    <Compile Include="ViewModel\Components\Description.cs" />
+    <Compile Include="ViewModel\Components\Language.cs" />
+    <Compile Include="ViewModel\Components\Location.cs" />
     <Compile Include="ViewModel\CurrentSession.cs" />
+    <Compile Include="ViewModel\Objects\EN_Description.cs" />
+    <Compile Include="ViewModel\Objects\Help.cs" />
+    <Compile Include="ViewModel\Objects\NL_Description.cs" />
+    <Compile Include="ViewModel\Objects\Route.cs" />
+    <Compile Include="ViewModel\Objects\RoutePoint.cs" />
+    <Compile Include="ViewModel\Objects\Site.cs" />
     <Compile Include="View\KaartScherm.xaml.cs">
       <DependentUpon>KaartScherm.xaml</DependentUpon>
     </Compile>
