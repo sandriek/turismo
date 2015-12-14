@@ -12,6 +12,11 @@ namespace Turismo.ViewModel
         private List<Site> SiteList;
         private List<Route> RouteList;
         private CurrentSession _CurrentSession;
+        private List<Help> HelpDescriptionList;
 
+        public AppGlobal instance()
+        {
+            return this;
+        }
     }
 }
