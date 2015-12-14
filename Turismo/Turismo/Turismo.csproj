@@ -101,6 +101,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AppGlobal.cs" />
+    <Compile Include="ViewModel\CurrentSession.cs" />
     <Compile Include="View\KaartScherm.xaml.cs">
       <DependentUpon>KaartScherm.xaml</DependentUpon>
     </Compile>
