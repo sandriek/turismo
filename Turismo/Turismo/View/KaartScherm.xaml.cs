@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Devices.Geolocation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,7 +27,25 @@ namespace Turismo
         public KaartScherm()
         {
             this.InitializeComponent();
-            
+            MapControl MapControl2 = new MapControl();
+            MapControl2.ZoomInteractionMode = MapInteractionMode.GestureAndControl;
+            MapControl2.TiltInteractionMode = MapInteractionMode.GestureAndControl;
+            MapControl2.MapServiceToken = "EnterYourAuthenticationKeyHere";
+            pageGrid.Children.Add(MapControl2);
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // Specify a known location.
+            BasicGeoposition cityPosition = new BasicGeoposition() { Latitude = 47.604, Longitude = -122.329 };
+            Geopoint cityCenter = new Geopoint(cityPosition);
+
+            // Set the map location.
+            MapControl1.Center = cityCenter;
+            MapControl1.ZoomLevel = 12;
+            MapControl1.LandmarksVisible = true;
+        }
+
+
     }
 }

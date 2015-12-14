@@ -9,6 +9,12 @@
     mc:Ignorable="d">
 
     <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Maps:Mapcontrol x:Name="Map" MapServiceToken="TWf70pkqTqFQpZHbZ2B9~EwuJrmaVK6VR5Y-GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbOBDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz"/>
+        <Maps:MapControl
+       x:Name="MapControl1"            
+       ZoomInteractionMode="GestureAndControl"
+       TiltInteractionMode="GestureAndControl"   
+       MapServiceToken=" TWf70pkqTqFQpZHbZ2B9~EwuJrmaV
+            K6VR5Y-GOT1AWw~AjSoU2Dy13BDTB2xpdlh5R5CbO
+            BDSRVDxm19MVc9pwkNx5MMXhOJizCTsdfbbLvz"/>
     </Grid>
 </Page>
