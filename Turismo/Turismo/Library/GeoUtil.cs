@@ -16,6 +16,7 @@ namespace Turismo.Library
 
         public GeoUtil()
         {
+            geoLocator = new Geolocator();
             geoLocator.DesiredAccuracy = PositionAccuracy.High;
         }
 

@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Turismo.View
+namespace Turismo.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -30,6 +30,16 @@ namespace Turismo.View
         private void TaalGeselecteerd(object sender, TappedRoutedEventArgs e)
         {
             Frame.Navigate(typeof(KaartScherm));
+        }
+
+        private void NLFlag_Click(object sender, RoutedEventArgs e)
+        {
+            Data.AppGlobal.Instance._CurrentSession.SwitchLanguage("NL");
+        }
+
+        private void ENFlag_Click(object sender, RoutedEventArgs e)
+        {
+            Data.AppGlobal.Instance._CurrentSession.SwitchLanguage("EN");
         }
     }
 }

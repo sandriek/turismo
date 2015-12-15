@@ -9,13 +9,17 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Name="KaartKnop" Icon="Map" Label="Naar kaart" Click="KaartKnop_Click"/>
+            <AppBarButton x:Name="TaalKnop" Width="103" Icon="Globe" Label="Taal selecteren" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="RouteKnop" Width="103" Icon="AlignCenter" Label="Route selecteren" Click="RouteKnop_Click"/>
+            <AppBarButton x:Name="KaartKnop" Width="103" Icon="Map" Label="Naar kaart" Click="KaartKnop_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 
-    <Grid Background="Teal">
-        <Image Source="ms-appx:///Assets/icon_small_256.png" 
-               Stretch="None" 
+    <Grid Background="#49B9E8">
+        <Image Source="Assets\Logo1024x1024.png" 
+               Width="200"
+               Height="200"
+               Stretch="Fill" 
                HorizontalAlignment="Center" 
                VerticalAlignment="Center"/>
     </Grid>

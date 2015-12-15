@@ -8,12 +8,21 @@ namespace Turismo.Data
     public class AppGlobal
     {
         private static AppGlobal _Instance;
-        protected GeoUtil _GeoUtil;
+        public GeoUtil _GeoUtil;
         protected List<Site> SiteList;
         protected List<Route> RouteList;
         public CurrentSession _CurrentSession;
         protected List<Help> HelpDescriptionList;
 
         public static AppGlobal Instance { get { return _Instance ?? (_Instance = new AppGlobal()); } }
+
+        public AppGlobal()
+        {
+            _GeoUtil = new GeoUtil();
+            SiteList = new List<Site>();
+            RouteList = new List<Route>();
+            _CurrentSession = new CurrentSession();
+            HelpDescriptionList = new List<Help>();
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Turismo.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -30,6 +31,16 @@ namespace Turismo
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(KaartScherm));
+        }
+
+        private void RouteKnop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TaalKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TaalScherm));
         }
     }
 }

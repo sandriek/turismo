@@ -21,9 +21,13 @@ namespace Turismo.Data
 
         }
 
-        public void SwitchLanguage()
+        public void SwitchLanguage(string newLang)
         {
-
+            switch(newLang)
+            {
+                case "NL": CurrentLanguage = Language.language.NL; break;
+                case "EN": CurrentLanguage = Language.language.EN; break;
+            }
         }
     }
 }
