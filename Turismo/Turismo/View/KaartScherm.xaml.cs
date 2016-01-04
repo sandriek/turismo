@@ -89,5 +89,14 @@ namespace Turismo
             Frame.Navigate(typeof(TaalScherm));
         }
 
+        private void RouteKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RouteScherm));
+        }
+
+        private void InfoKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(InfoScherm));
+        }
     }
 }

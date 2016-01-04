@@ -11,6 +11,8 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Name="TaalKnop"  Icon="World" Label="Taal selecteren" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="RouteKnop" Icon="Street" Label="Route selecteren" Click="RouteKnop_Click"/>
+            <AppBarButton x:Name="InfoKnop" Icon="ContactInfo" Label="Info weergeven" Click="InfoKnop_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
     

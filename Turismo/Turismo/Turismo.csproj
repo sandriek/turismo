@@ -100,6 +100,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\InfoScherm.xaml.cs">
+      <DependentUpon>InfoScherm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\KaartScherm.xaml.cs">
       <DependentUpon>KaartScherm.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\RouteScherm.xaml.cs">
+      <DependentUpon>RouteScherm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TaalScherm.xaml.cs">
       <DependentUpon>TaalScherm.xaml</DependentUpon>
     </Compile>
@@ -143,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\InfoScherm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\KaartScherm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +160,10 @@
     <Page Include="View\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\RouteScherm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TaalScherm.xaml">
       <SubType>Designer</SubType>
