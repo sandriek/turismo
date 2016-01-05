@@ -39,7 +39,8 @@ namespace Turismo.Pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             // Set the map location.
-            MapControl1.Center = (await Data.AppGlobal.Instance._GeoUtil.GetGeoLocation()).Coordinate.Point;
+            Geoposition current = await Data.AppGlobal.Instance._GeoUtil.GetGeoLocation();
+            MapControl1.Center = current.Coordinate.Point;
             MapControl1.ZoomLevel = 12;
             MapControl1.LandmarksVisible = true;
         }
