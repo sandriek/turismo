@@ -28,6 +28,16 @@ namespace Turismo
             this.InitializeComponent();
         }
 
+        private void KaartKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(KaartScherm));
+        }
+
+        private void RouteKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RouteScherm));
+        }
+
         private void TaalKnop_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(TaalScherm));
