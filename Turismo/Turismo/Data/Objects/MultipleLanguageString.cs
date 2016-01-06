@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Turismo.Data.Objects
 {
-    public class MutipleLanguageString : INotifyPropertyChanged
+    public class MultipleLanguageString : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string propertyname)
@@ -34,7 +34,7 @@ namespace Turismo.Data.Objects
             private set { _text = value; OnPropertyChanged(nameof(Text)); }
         }
 
-        public MutipleLanguageString(string nl_string, string en_string)
+        public MultipleLanguageString(string nl_string, string en_string)
         {
             NL_String = nl_string;
             EN_String = en_string;

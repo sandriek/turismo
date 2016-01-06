@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Turismo.Pages;
+using Turismo.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,6 +27,7 @@ namespace Turismo
         public MainPage()
         {
             this.InitializeComponent();
+            DataContext = MainPageViewModel.Instance;
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,6 @@ namespace Turismo
         private void TaalKnop_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(TaalScherm));
-        }
+        }        
     }
 }

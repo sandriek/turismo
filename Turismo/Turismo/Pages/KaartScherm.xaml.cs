@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Devices.Geolocation;
 using System.Diagnostics;
+using Turismo.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -29,6 +30,7 @@ namespace Turismo.Pages
         public KaartScherm()
         {
             this.InitializeComponent();
+            DataContext = KaartSchermViewModel.Instance;
             MapControl2.ZoomInteractionMode = MapInteractionMode.GestureAndControl;
             MapControl2.TiltInteractionMode = MapInteractionMode.GestureAndControl;
             MapControl2.RotateInteractionMode = MapInteractionMode.GestureAndControl;

@@ -8,10 +8,10 @@
     mc:Ignorable="d">
 
     <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:Name="TaalKnop" Width="103" Icon="Globe" Label="Taal selecteren" Click="TaalKnop_Click"/>
-            <AppBarButton x:Name="RouteKnop" Width="103" Icon="AlignCenter" Label="Route selecteren" Click="RouteKnop_Click"/>
-            <AppBarButton x:Name="KaartKnop" Width="103" Icon="Map" Label="Naar kaart" Click="KaartKnop_Click"/>
+        <CommandBar x:Name="Buttons">
+            <AppBarButton x:Name="TaalKnop" Width="103" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="RouteKnop" Width="103" Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
+            <AppBarButton x:Name="KaartKnop" Width="103" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 

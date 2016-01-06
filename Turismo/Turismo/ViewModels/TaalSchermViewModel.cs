@@ -8,25 +8,11 @@ using Turismo.Data.Objects;
 
 namespace Turismo.ViewModels
 {
-    public class TaalSchermViewModel
-    {
-        private static TaalSchermViewModel _instance;
-        public static TaalSchermViewModel Instance
+    public class TaalSchermViewModel : Singleton<TaalSchermViewModel>
+    {        
+        public TaalSchermViewModel()
         {
-            get
-            {
-                if(_instance == null)
-                {
-                    _instance = new TaalSchermViewModel();
-                }
-                return _instance;
-            }
-        }
-
-
-        private TaalSchermViewModel()
-        {
-            Title = new MutipleLanguageString("Kies een taal", "Choose a language");
+            Title = new MultipleLanguageString("Kies een taal", "Choose a language");
             CurrentSession.LanguageChanged += CurrentSession_LanguageChanged;
         }
 
@@ -35,6 +21,6 @@ namespace Turismo.ViewModels
             Title.SetText();
         }
 
-        public MutipleLanguageString Title { get; }
+        public MultipleLanguageString Title { get; }
     }
 }

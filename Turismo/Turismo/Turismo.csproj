@@ -108,7 +108,8 @@
     <Compile Include="Data\Objects\Description.cs" />
     <Compile Include="Data\Objects\Language.cs" />
     <Compile Include="Data\Objects\Location.cs" />
-    <Compile Include="Data\Objects\MutipleLanguageString.cs" />
+    <Compile Include="Data\Objects\MultipleLanguageString.cs" />
+    <Compile Include="Data\Objects\Singleton.cs" />
     <Compile Include="Library\ErrorHandler.cs" />
     <Compile Include="Library\GeoUtil.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -121,6 +122,8 @@
       <DependentUpon>TaalScherm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\KaartSchermViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\TaalSchermViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
