@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Turismo.Objects
 {
-    public class Category
+    public interface Description
     {
-       public enum category { Historical, PubTour, Cultural}
+       string _Description { get; set;}
+       List<string> AudioList { get; set;}
     }
 }

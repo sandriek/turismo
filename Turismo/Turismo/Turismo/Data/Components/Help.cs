@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Turismo.Objects;
 
-namespace Turismo.Objects
+namespace Turismo.Components
 {
-    public class Category
+    public class Help
     {
-       public enum category { Historical, PubTour, Cultural}
+        Description Description;
     }
 }

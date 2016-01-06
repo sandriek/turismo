@@ -9,12 +9,25 @@ using Windows.Devices.Geolocation.Geofencing;
 
 namespace Turismo.Components
 {
-    class RoutePoint
+    class RoutePoint : Location
     {
         public string name { get; set; }
-        public Geoposition Position { get; set; }
+        public BasicGeoposition Position { get; set; }
         public Geofence Fence { get; set; }
         public List<string> ImageGallery { get; set; }
         public Description Description { get; set; }
+
+        Boolean IsBezienswaardigheid;
+
+
+        public RoutePoint(string name, Description Description, BasicGeoposition Position, Boolean IsBezienswaardigheid)
+        {
+            this.name = name;
+            this.Description = Description;
+
+            this.Position = Position;
+            this.IsBezienswaardigheid = IsBezienswaardigheid;
+                               
+        }
     }
 }
