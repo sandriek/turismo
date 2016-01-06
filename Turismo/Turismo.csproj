@@ -151,6 +151,15 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Pages\Text\AntoniusKerk.txt" />
+    <Content Include="Pages\Text\Bibliotheek.txt" />
+    <Content Include="Pages\Text\Kasteel.txt" />
+    <Content Include="Pages\Text\Kloosterkazerne.txt" />
+    <Content Include="Pages\Text\NassauMonument.txt" />
+    <Content Include="Pages\Text\Stadhuis.txt" />
+    <Content Include="Pages\Text\Torenstraat.txt" />
+    <Content Include="Pages\Text\Valkenberg.txt" />
+    <Content Include="Pages\Text\Vishal.txt" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +191,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Pictures\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

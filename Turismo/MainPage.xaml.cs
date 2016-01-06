@@ -42,5 +42,10 @@ namespace Turismo
         {
             Frame.Navigate(typeof(TaalScherm));
         }
+
+        private void Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Bezienswaardigheidpopup));
+        }
     }
 }

@@ -10,6 +10,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Name="TaalKnop" Width="103" Icon="Globe" Label="Taal selecteren" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="Popup" Width="103" Icon="Bullets" Label="hoi" Click="Popup_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 

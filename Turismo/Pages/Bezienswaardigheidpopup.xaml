@@ -8,12 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <!--Zet bij source het plaatje Test knop zit bij kaart scherm-->
-            <Image Source="Assets/" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="214"/>
+            <RowDefinition Height="426"/>
+        </Grid.RowDefinitions>
+        <Image  
                HorizontalAlignment="Center" 
-               VerticalAlignment="Top"/>
-            <TextBlock Text="bind dit met shizzle" VerticalAlignment="Center"/>
-        </StackPanel>
+               VerticalAlignment="Top"
+               Margin="50"
+               Grid.Row="0"/>
+        <TextBox x:Name="FileText" Text="{Binding text}" 
+               VerticalAlignment="Center" TextWrapping="Wrap" 
+               Margin="25"
+               MaxHeight="376" 
+               Grid.Row="1" IsReadOnly="True"/>
+        
     </Grid>
 </Page>
