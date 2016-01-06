@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Turismo.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,7 @@ namespace Turismo.Pages
         public TaalScherm()
         {
             this.InitializeComponent();
+            DataContext = TaalSchermViewModel.Instance;
         }
 
         private void TaalGeselecteerd(object sender, TappedRoutedEventArgs e)
