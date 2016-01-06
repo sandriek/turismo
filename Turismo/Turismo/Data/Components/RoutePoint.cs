@@ -12,17 +12,22 @@ namespace Turismo.Components
     class RoutePoint : Location
     {
         public string name { get; set; }
-        public Geoposition Position { get; set; }
+        public BasicGeoposition Position { get; set; }
         public Geofence Fence { get; set; }
         public List<string> ImageGallery { get; set; }
         public Description Description { get; set; }
 
-        //kan ik hier niet beter gewoon doubles door geven ivm noorderbreedte en westerlengte?
+        Boolean IsBezienswaardigheid;
 
-        public RoutePoint(string name, Description Description)
+
+        public RoutePoint(string name, Description Description, BasicGeoposition Position, Boolean IsBezienswaardigheid)
         {
             this.name = name;
             this.Description = Description;
+
+            this.Position = Position;
+            this.IsBezienswaardigheid = IsBezienswaardigheid;
+                               
         }
     }
 }

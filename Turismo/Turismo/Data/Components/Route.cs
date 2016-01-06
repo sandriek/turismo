@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Turismo.Objects;
+using Windows.Devices.Geolocation;
 
 namespace Turismo.Components
 {
@@ -65,11 +66,13 @@ namespace Turismo.Components
 
                     if (delen[2] != " ")
                         IsItASite = true;
-                        
 
 
+                    BasicGeoposition Position = new BasicGeoposition();
+                    Position.Latitude = NorthLatitude;
+                    Position.Longitude = WesternLongitude;
 
-                    Location RP = new RoutePoint(NameSite, _Description); //hier moeten dan nog die NB en WL komen
+                    Location RP = new RoutePoint(NameSite, _Description, Position,IsItASite);
                     LocationList.Add(RP);
                 }
             }
