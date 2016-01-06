@@ -59,5 +59,10 @@ namespace Turismo.Pages
         {
             Frame.Navigate(typeof(InfoScherm));
         }
+
+        private void Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Bezienswaardigheidpopup));
+        }
     }
 }
