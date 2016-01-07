@@ -131,9 +131,12 @@
       <DependentUpon>TaalScherm.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\InfoSchermViewModel.cs" />
     <Compile Include="ViewModels\KaartSchermViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\RouteSchermViewModel.cs" />
     <Compile Include="ViewModels\TaalSchermViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

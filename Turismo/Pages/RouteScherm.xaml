@@ -9,7 +9,7 @@
 
         <Page.BottomAppBar>
             <CommandBar>
-                <AppBarButton x:Name="KaartKnop" Icon="Map" Label="Naar kaart" Click="KaartKnop_Click"/>
+                <AppBarButton x:Name="KaartKnop" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
             </CommandBar>
         </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

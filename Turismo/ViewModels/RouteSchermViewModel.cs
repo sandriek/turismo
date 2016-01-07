@@ -8,6 +8,6 @@ using Turismo.Data.Objects;
 
 namespace Turismo.ViewModels
 {
-    public class KaartSchermViewModel : ViewModel<KaartSchermViewModel>
-    {  }
+    public class RouteSchermViewModel : ViewModel<RouteSchermViewModel>
+    { }
 }
