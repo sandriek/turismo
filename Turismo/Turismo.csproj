@@ -98,15 +98,12 @@
     </Compile>
     <Compile Include="ViewModels\BezienswaardigheidsPopupViewModel.cs" />
     <Compile Include="Data\AppGlobal.cs" />
-    <Compile Include="Data\Components\ENG_Description.cs" />
     <Compile Include="Data\Components\Help.cs" />
-    <Compile Include="Data\Components\NL_Description.cs" />
     <Compile Include="Data\Components\Route.cs" />
     <Compile Include="Data\Components\RoutePoint.cs" />
     <Compile Include="Data\Components\Site.cs" />
     <Compile Include="Data\CurrentSession.cs" />
     <Compile Include="Data\Objects\Category.cs" />
-    <Compile Include="Data\Objects\Description.cs" />
     <Compile Include="Data\Objects\Language.cs" />
     <Compile Include="Data\Objects\Location.cs" />
     <Compile Include="Data\Objects\MultipleLanguageString.cs" />
@@ -153,6 +150,7 @@
     <Content Include="Assets\Logo150x150.png" />
     <Content Include="Assets\Logo150x150.scale-200.png" />
     <Content Include="Assets\NL.jpg" />
+    <Content Include="Assets\Routes\HistorischeRoute.txt" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />

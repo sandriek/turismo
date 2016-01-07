@@ -38,7 +38,7 @@ namespace Turismo.Pages
 
         public void FindText()
         {            
-            string linkText = "Pages/Text/" + bpvm.CurrentSite.name+ ".txt";
+            string linkText = "Pages/Text/" + bpvm.CurrentSite.Name+ ".txt";
             if (File.Exists(linkText))
             {
                 string[] route = File.ReadAllLines(linkText);
@@ -58,7 +58,7 @@ namespace Turismo.Pages
 
         public void FindPicture()
         {                
-            BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.name+ ".jpg");
+            BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.Name+ ".jpg");
             //Debug.WriteLine(img.UriSource);
             FilePicture.Source = img;            
         }
