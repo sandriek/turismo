@@ -32,7 +32,7 @@ namespace Turismo.ViewModels
 
         private BezienswaardigheidsPopupViewModel()
         {
-            CurrentSite = new Site("Kasteel van Breda", new Windows.Devices.Geolocation.BasicGeoposition());
+            CurrentSite = new Site("Begin Vismarkt", new Windows.Devices.Geolocation.BasicGeoposition());
         }
     }
 }

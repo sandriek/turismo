@@ -186,15 +186,22 @@
     <Content Include="Pages\Pictures\Valkenberg.jpg" />
     <Content Include="Pages\Pictures\VVV Breda.jpg" />
     <Content Include="Pages\Pictures\Willem Merkxtuin.jpg" />
-    <Content Include="Pages\Text\Antonius van Paduakerk.txt" />
-    <Content Include="Pages\Text\Bibliotheek.txt" />
+    <Content Include="Pages\Text\Antonius van Paduakerk_nl.txt" />
+    <Content Include="Pages\Text\Bibliotheek_nl.txt" />
     <Content Include="Pages\Text\Kasteel van Breda_nl.txt" />
-    <Content Include="Pages\Text\Kloosterkazerne.txt" />
-    <Content Include="Pages\Text\Nassau Baronie Monument.txt" />
-    <Content Include="Pages\Text\Stadhuis.txt" />
+    <Content Include="Pages\Text\Kloosterkazerne_nl.txt" />
+    <Content Include="Pages\Text\Nassau Baronie Monument_nl.txt" />
+    <Content Include="Pages\Text\Stadhuis_nl.txt" />
     <Content Include="Pages\Text\Kasteel van Breda_en.txt" />
-    <Content Include="Pages\Text\Valkenberg.txt" />
-    <Content Include="Pages\Text\Begin Vismarkt.txt" />
+    <Content Include="Pages\Text\Antonius van Paduakerk_en.txt" />
+    <Content Include="Pages\Text\Begin Vismarkt_en.txt" />
+    <Content Include="Pages\Text\Bibliotheek_en.txt" />
+    <Content Include="Pages\Text\Kloosterkazerne_en.txt" />
+    <Content Include="Pages\Text\Nassau Baronie Monument_en.txt" />
+    <Content Include="Pages\Text\Stadhuis_en.txt" />
+    <Content Include="Pages\Text\Valkenberg_en.txt" />
+    <Content Include="Pages\Text\Valkenberg_nl.txt" />
+    <Content Include="Pages\Text\Begin Vismarkt_nl.txt" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
