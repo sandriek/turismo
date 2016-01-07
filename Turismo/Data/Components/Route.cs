@@ -87,8 +87,6 @@ namespace Turismo.Components
             {
                 Debug.WriteLine("Het gewenste bestand is niet gevonden.");
             }
-
-
         }
     }
 }
