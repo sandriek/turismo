@@ -150,6 +150,7 @@
     <Content Include="Assets\Logo150x150.png" />
     <Content Include="Assets\Logo150x150.scale-200.png" />
     <Content Include="Assets\NL.jpg" />
+    <Content Include="Assets\Routes\HistorischeRoute.txt" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
