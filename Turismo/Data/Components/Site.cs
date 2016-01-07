@@ -11,18 +11,19 @@ namespace Turismo.Components
 {
     public class Site : Location
     {
-       public int id { get; set; }
-       public string name { get; set; }
-       public BasicGeoposition Position { get; set; }
-       public Geofence Fence { get; set; }
-       public List<string> ImageGallery { get; set; }
-       public Description Description { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public BasicGeoposition Position { get; set; }
+        public Geofence Fence { get; set; }
+        public List<string> ImageGallery { get; set; }
+        public Description Description { get; set; }
 
         public Site(int ID, BasicGeoposition post)
         {
             id = ID;
             Position = post;
-            Fence = new Geofence(id.ToString(), new Geocircle(Position, 10,0), MonitoredGeofenceStates.Entered, true);
+            Fence = new Geofence(id.ToString(), new Geocircle(Position, 10, 0), MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited, true);
+            GeofenceMonitor.Current.Geofences.Add(Fence);
         }
     }
 }

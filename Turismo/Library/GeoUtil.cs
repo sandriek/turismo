@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
+using Windows.Devices.Geolocation.Geofencing;
 using Windows.Services.Maps;
+using Windows.UI.Core;
+using Windows.UI;
+using Windows.UI.Xaml.Controls;
+using Turismo.Pages;
+using Windows.UI.Popups;
 
 namespace Turismo.Library
 {
@@ -18,14 +25,40 @@ namespace Turismo.Library
         public GeoUtil()
         {
             geoLocator = new Geolocator();
+            GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
             geoLocator.DesiredAccuracy = PositionAccuracy.High;
 
+        }
+
+        private void GeofenceStateChanged(GeofenceMonitor sender, object args)
+        {
+            if (sender.Geofences.Any())
+            {
+                var reports = sender.ReadReports();
+                foreach (var report in reports)
+                {
+                    switch (report.NewState)
+                    {
+                        case GeofenceState.Entered:
+                            {
+                                new MessageDialog("Boem");
+                                break;
+                            }
+
+                        case GeofenceState.Exited:
+                            {
+                                new MessageDialog("Niks meer aan de hand");
+                                break;
+                            }
+                    }
+                }
+            }
         }
 
         public async void RequestAccess()
         {
             AccessStatus = await Geolocator.RequestAccessAsync();
-            
+
         }
 
         public async Task<Geoposition> GetGeoLocation()
@@ -90,8 +123,8 @@ namespace Turismo.Library
         {
             List<Geopoint> geoList = new List<Geopoint>();
             geoList.Add(((await GetGeoLocation()).Coordinate.Point));
-            
-            foreach(Location l in routeList)
+
+            foreach (Location l in routeList)
             {
                 geoList.Add(new Geopoint(l.Position));
             }
