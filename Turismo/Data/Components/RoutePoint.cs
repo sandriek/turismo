@@ -24,7 +24,6 @@ namespace Turismo.Components
         {
             this.name = name;
             this.Description = Description;
-
             this.Position = Position;
             this.IsBezienswaardigheid = IsBezienswaardigheid;
 

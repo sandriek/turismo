@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
+using Windows.UI.Xaml.Controls;
 
 namespace Turismo.Components
 {
@@ -16,7 +17,7 @@ namespace Turismo.Components
         List<Location> LocationList;
         Description _Description;
         Category _Category;
-
+        List<Site> SiteList;
 
         double NorthLatitude;
         double WesternLongitude;
@@ -29,12 +30,15 @@ namespace Turismo.Components
             this._Description = description;
             this._Category = category;
             LocationList = new List<Location>();
+            SiteList = new List<Site>();
             FillLocationList();
         }
 
         private void FillLocationList()
         {
             string filename = "Assets/" + Name + ".txt";
+            DirectoryInfo di = new DirectoryInfo("Pages/Pictures");
+            FileInfo[] Images = di.GetFiles("*.jpg");
             if (File.Exists(filename))
             {
                 string[] route = File.ReadAllLines(filename);
@@ -63,17 +67,20 @@ namespace Turismo.Components
                     }
 
                     NameSite = delen[2];
-
-                    if (delen[2] != " ")
-                        IsItASite = true;
-
-
+                      
                     BasicGeoposition Position = new BasicGeoposition();
                     Position.Latitude = NorthLatitude;
                     Position.Longitude = WesternLongitude;
 
+                    if (delen[2] != " ")
+                    {
+                        IsItASite = true;
+                        SiteList.Add(new Site(NameSite, _Description, Position, (Image)Images.GetValue(1)));
+                    }
+
                     Location RP = new RoutePoint(NameSite, _Description, Position, IsItASite);
                     LocationList.Add(RP);
+                    
                 }
             }
             else
