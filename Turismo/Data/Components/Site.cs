@@ -7,6 +7,7 @@ using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
 using Turismo.Objects;
 using Windows.UI.Xaml.Controls;
+using Turismo.Data.Objects;
 
 namespace Turismo.Components
 {
@@ -16,10 +17,10 @@ namespace Turismo.Components
         public BasicGeoposition Position { get; set; }
         public Geofence Fence { get; set; }
         public Image SiteImage { get; set; }
-        public MutipleLanguageString Description { get; set; }
+        public MultipleLanguageString Description { get; set; }
         public List<string> ImageGallery { get; set; }
 
-        public Site(string name, MutipleLanguageString Description, BasicGeoposition Position, Image SiteImage)
+        public Site(string name, MultipleLanguageString Description, BasicGeoposition Position, Image SiteImage)
         {
             this.name = name;
             this.Description = Description;

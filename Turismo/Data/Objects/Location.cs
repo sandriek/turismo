@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Turismo.Data.Objects;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
+using Windows.UI.Xaml.Controls;
 
 namespace Turismo.Objects
 {
     interface Location
     {
-        string name { get; set; }
-        BasicGeoposition Position { get; set; }
-        Geofence Fence { get; set; }
-        List<string> ImageGallery { get; set; }
-        MutipleLanguageString Description { get; set; }
+        string Name { get;}
+        BasicGeoposition Position { get; }
+        Geofence Fence { get; }        
+        MultipleLanguageString Description { get; }
+        Image Image { get; }
     }
 }
