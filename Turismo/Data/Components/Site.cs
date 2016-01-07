@@ -13,20 +13,18 @@ namespace Turismo.Components
 {
     public class Site : Location
     {
-        public string name { get; set; }
-        public BasicGeoposition Position { get; set; }
-        public Geofence Fence { get; set; }
-        public Image SiteImage { get; set; }
-        public MultipleLanguageString Description { get; set; }
-        public List<string> ImageGallery { get; set; }
-
+        public string Name { get; }
+        public BasicGeoposition Position { get; }
+        public Geofence Fence { get; }
+        public MultipleLanguageString Description { get; }
+        public Image Image { get; }
+        
         public Site(string name, MultipleLanguageString Description, BasicGeoposition Position, Image SiteImage)
         {
-            this.name = name;
+            this.Name = name;
             this.Description = Description;
             this.Position = Position;
-            this.SiteImage = SiteImage;
+            this.Image = SiteImage;
         }
-
     }
 }

@@ -14,9 +14,8 @@ namespace Turismo.Components
     public class Route
     {
         string Name;
-        List<Location> LocationList;
-        MutipleLanguageString _Description;
-        Category _Category;
+        List<Location> LocationList;        
+        Category Category;
         List<Site> SiteList;
 
         double NorthLatitude;
@@ -24,11 +23,10 @@ namespace Turismo.Components
         string NameSite;
         Boolean IsItASite = false;
 
-        public Route(string name, MutipleLanguageString description, Category category)
+        public Route(string name,  Category category)
         {
-            this.Name = name;
-            this._Description = description;
-            this._Category = category;
+            Name = name;            
+            Category = category;
             LocationList = new List<Location>();
             SiteList = new List<Site>();
             FillLocationList();
