@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Turismo.Components;
+using Turismo.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,13 +25,8 @@ namespace Turismo.Pages
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class Bezienswaardigheidpopup : Page
-    {
-        string text;
-        public Site currentSite;
-        string linkText;
-
+    {        
         private BezienswaardigheidsPopupViewModel bpvm;
-
         public Bezienswaardigheidpopup()
         {
             this.InitializeComponent();
@@ -42,10 +38,11 @@ namespace Turismo.Pages
 
         public void FindText()
         {            
-            linkText = "Pages/Text/" + bpvm.CurrentSite.name+ ".txt";
+            string linkText = "Pages/Text/" + bpvm.CurrentSite.name+ ".txt";
             if (File.Exists(linkText))
             {
                 string[] route = File.ReadAllLines(linkText);
+                string text = "";
                 foreach (string s in route)
                 {
                     text += s + Environment.NewLine;

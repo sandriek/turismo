@@ -96,7 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BezienswaardigheidsPopupViewModel.cs" />
+    <Compile Include="ViewModels\BezienswaardigheidsPopupViewModel.cs" />
     <Compile Include="Data\AppGlobal.cs" />
     <Compile Include="Data\Components\ENG_Description.cs" />
     <Compile Include="Data\Components\Help.cs" />

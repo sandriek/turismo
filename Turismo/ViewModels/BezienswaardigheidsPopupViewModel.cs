@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Turismo.Components;
 
-namespace Turismo
+namespace Turismo.ViewModels
 {
     public class BezienswaardigheidsPopupViewModel
     {
@@ -32,7 +32,7 @@ namespace Turismo
 
         private BezienswaardigheidsPopupViewModel()
         {
-            
+            CurrentSite = new Site("Kasteel van Breda", null, new Windows.Devices.Geolocation.BasicGeoposition(),null);
         }
     }
 }
