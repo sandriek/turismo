@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BezienswaardigheidsPopupViewModel.cs" />
     <Compile Include="Data\AppGlobal.cs" />
     <Compile Include="Data\Components\ENG_Description.cs" />
     <Compile Include="Data\Components\Help.cs" />
@@ -138,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\EN.gif" />
+    <Content Include="Assets\Kasteel van Breda.jpg" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\logo.scale-100.png" />
     <Content Include="Assets\Logo1024x1024.png" />
@@ -151,15 +153,42 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="Pages\Text\AntoniusKerk.txt" />
+    <Content Include="Pages\Pictures\Antonius van Paduakerk.jpg" />
+    <Content Include="Pages\Pictures\Begijnenhof.jpg" />
+    <Content Include="Pages\Pictures\Begin Havermarkt.jpg" />
+    <Content Include="Pages\Pictures\Begin Vismarkt.jpg" />
+    <Content Include="Pages\Pictures\Bevrijdingsmonument.jpg" />
+    <Content Include="Pages\Pictures\Beyerd.jpg" />
+    <Content Include="Pages\Pictures\Bibliotheek.jpg" />
+    <Content Include="Pages\Pictures\Binding van Isaäc.jpg" />
+    <Content Include="Pages\Pictures\Chasse theater.jpg" />
+    <Content Include="Pages\Pictures\Eindpunt stadswandeling.jpg" />
+    <Content Include="Pages\Pictures\Gasthuispoort.jpg" />
+    <Content Include="Pages\Pictures\Grote Kerk.jpg" />
+    <Content Include="Pages\Pictures\Grote Markt.jpg" />
+    <Content Include="Pages\Pictures\Het poortje.jpg" />
+    <Content Include="Pages\Pictures\Het Wit Lam.jpg" />
+    <Content Include="Pages\Pictures\Huis van Brecht %28rechter zijde%29.jpg" />
+    <Content Include="Pages\Pictures\Kasteel van Breda.jpg" />
+    <Content Include="Pages\Pictures\Kloosterkazerne.jpg" />
+    <Content Include="Pages\Pictures\Liefdeszuster.jpg" />
+    <Content Include="Pages\Pictures\Nassau Baronie Monument.jpg" />
+    <Content Include="Pages\Pictures\Ridderstraat.jpg" />
+    <Content Include="Pages\Pictures\Spanjaardsgat %28rechter zijde%29.jpg" />
+    <Content Include="Pages\Pictures\Stadhouderspoort.jpg" />
+    <Content Include="Pages\Pictures\Stadhuis.jpg" />
+    <Content Include="Pages\Pictures\The Light House.jpg" />
+    <Content Include="Pages\Pictures\Valkenberg.jpg" />
+    <Content Include="Pages\Pictures\VVV Breda.jpg" />
+    <Content Include="Pages\Pictures\Willem Merkxtuin.jpg" />
+    <Content Include="Pages\Text\Antonius van Paduakerk.txt" />
     <Content Include="Pages\Text\Bibliotheek.txt" />
-    <Content Include="Pages\Text\Kasteel.txt" />
+    <Content Include="Pages\Text\Kasteel van Breda.txt" />
     <Content Include="Pages\Text\Kloosterkazerne.txt" />
-    <Content Include="Pages\Text\NassauMonument.txt" />
+    <Content Include="Pages\Text\Nassau Baronie Monument.txt" />
     <Content Include="Pages\Text\Stadhuis.txt" />
-    <Content Include="Pages\Text\Torenstraat.txt" />
     <Content Include="Pages\Text\Valkenberg.txt" />
-    <Content Include="Pages\Text\Vishal.txt" />
+    <Content Include="Pages\Text\Begin Vismarkt.txt" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +221,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Pictures\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

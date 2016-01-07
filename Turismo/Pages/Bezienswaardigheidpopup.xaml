@@ -8,20 +8,22 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="214"/>
             <RowDefinition Height="426"/>
-        </Grid.RowDefinitions>
-        <Image  
+        </Grid.RowDefinitions>-->
+        <StackPanel>
+        <Image x:Name="FilePicture"
                HorizontalAlignment="Center" 
                VerticalAlignment="Top"
                Margin="50"
-               Grid.Row="0"/>
+               MaxWidth="360" MinHeight="114" MaxHeight="214"
+            />
         <TextBox x:Name="FileText" Text="{Binding text}" 
                VerticalAlignment="Center" TextWrapping="Wrap" 
                Margin="25"
                MaxHeight="376" 
-               Grid.Row="1" IsReadOnly="True"/>
-        
+               IsReadOnly="True" BorderThickness="0" MinHeight="376"/>
+        </StackPanel>
     </Grid>
 </Page>

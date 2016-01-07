@@ -27,31 +27,62 @@ namespace Turismo.Pages
     {
         string text;
         public Site currentSite;
-        string naam = "Kasteel";
-        //string naam mag weg
-        string link;
+        string linkText;
+
+        private BezienswaardigheidsPopupViewModel bpvm;
 
         public Bezienswaardigheidpopup()
         {
             this.InitializeComponent();
+            bpvm = BezienswaardigheidsPopupViewModel.Instance;
+            DataContext = bpvm;
             FindText();
+            FindPicture();
         }
 
         public void FindText()
         {
             //link = "Pages/Text/" + currentSite.name + ".txt";
             //Dit is de goede, hier onder is hardcoded om te testen
-            link = "Pages/Text/" + naam + ".txt";
-            if (File.Exists(link))
+            linkText = "Pages/Text/" + bpvm.CurrentSite.name+ ".txt";
+            if (File.Exists(linkText))
             {
-                string[] route = File.ReadAllLines(link);
+                string[] route = File.ReadAllLines(linkText);
                 foreach (string s in route)
                 {
                     text += s + Environment.NewLine;
-                    Debug.WriteLine(text);
                 }
                 FileText.Text = text;
             }
+            else
+            {
+                FileText.Text = "Er is over deze bezienswaardigheid geen extra informatie";
+            }
+        }
+
+
+        public void FindPicture()
+        {    
+            //Uri baseUri = new Uri("ms-appx");
+            //linkPicture = "ms-appx://Assets/" + naam + ".jpg";
+            //if (File.Exists(linkPicture))
+            //{
+            BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.name+ ".jpg");
+            //Debug.WriteLine(img.UriSource);
+            FilePicture.Source = img;
+            //}
+            //else
+            //{
+            //    Debug.WriteLine("nee ik bestaan niet");
+            //}
+        }
+
+        public static BitmapImage ImageFromRelativePath(FrameworkElement parent, string path)
+        {
+            var uri = new Uri(parent.BaseUri, path);
+            BitmapImage bmp = new BitmapImage();
+            bmp.UriSource = uri;
+            return bmp;
         }
     }
 }
