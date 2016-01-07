@@ -37,7 +37,7 @@ namespace Turismo.Components
 
         private void FillLocationList()
         {
-            string filename = "Assets/" + Name + ".txt";
+            string filename = "Assets/Routes/" + Name + ".txt";
             DirectoryInfo di = new DirectoryInfo("Pages/Pictures");
             FileInfo[] Images = di.GetFiles("*.jpg");
             if (File.Exists(filename))
@@ -86,7 +86,7 @@ namespace Turismo.Components
             }
             else
             {
-                Debug.WriteLine("Het gewenste bestand is niet gevonden.");
+                Debug.WriteLine("De gewenste route is niet gevonden.");
             }
         }
     }
