@@ -7,7 +7,7 @@ using Turismo.Objects;
 
 namespace Turismo.Components
 {
-    class NL_Description: Description
+    class NL_Description: MutipleLanguageString
     {
         public List<string> AudioList { get; set; }
         public string _Description { get; set; }

@@ -39,6 +39,12 @@ namespace Turismo.Data.Objects
             NL_String = nl_string;
             EN_String = en_string;
             SetText();
+            CurrentSession.LanguageChanged += CurrentSession_LanguageChanged;
+        }
+
+        private void CurrentSession_LanguageChanged(object sender, EventArgs e)
+        {
+            SetText();
         }
 
         public void SetText()

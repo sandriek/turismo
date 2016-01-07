@@ -16,10 +16,10 @@ namespace Turismo.Components
         public BasicGeoposition Position { get; set; }
         public Geofence Fence { get; set; }
         public Image SiteImage { get; set; }
-        public Description Description { get; set; }
+        public MutipleLanguageString Description { get; set; }
         public List<string> ImageGallery { get; set; }
 
-        public Site(string name, Description Description, BasicGeoposition Position, Image SiteImage)
+        public Site(string name, MutipleLanguageString Description, BasicGeoposition Position, Image SiteImage)
         {
             this.name = name;
             this.Description = Description;

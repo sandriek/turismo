@@ -14,6 +14,6 @@ namespace Turismo.Objects
         BasicGeoposition Position { get; set; }
         Geofence Fence { get; set; }
         List<string> ImageGallery { get; set; }
-        Description Description { get; set; }
+        MutipleLanguageString Description { get; set; }
     }
 }

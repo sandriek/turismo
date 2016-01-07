@@ -15,12 +15,12 @@ namespace Turismo.Components
         public BasicGeoposition Position { get; set; }
         public Geofence Fence { get; set; }
         public List<string> ImageGallery { get; set; }
-        public Description Description { get; set; }
+        public MutipleLanguageString Description { get; set; }
 
         Boolean IsBezienswaardigheid;
 
 
-        public RoutePoint(string name, Description Description, BasicGeoposition Position, Boolean IsBezienswaardigheid)
+        public RoutePoint(string name, MutipleLanguageString Description, BasicGeoposition Position, Boolean IsBezienswaardigheid)
         {
             this.name = name;
             this.Description = Description;

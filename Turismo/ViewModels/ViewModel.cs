@@ -36,17 +36,7 @@ namespace Turismo.ViewModels
             TaalKnopLabel = new MultipleLanguageString("Taal selecteren", "Select language");
             RouteKnopLabel = new MultipleLanguageString("Route selecteren", "Select route");
             InfoKnopLabel = new MultipleLanguageString("Info weergeven", "Show info");
-            PopupLabel = new MultipleLanguageString("Bezienswaardigheid popup", "Sights popup");
-            CurrentSession.LanguageChanged += CurrentSession_LanguageChanged;
-        }
-
-        protected virtual void CurrentSession_LanguageChanged(object sender, EventArgs e)
-        {
-            KaartKnopLabel.SetText();
-            TaalKnopLabel.SetText();
-            RouteKnopLabel.SetText();
-            InfoKnopLabel.SetText();
-            PopupLabel.SetText();
-        }
+            PopupLabel = new MultipleLanguageString("Bezienswaardigheid popup", "Sights popup");           
+        }        
     }
 }

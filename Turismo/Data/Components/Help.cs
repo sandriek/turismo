@@ -9,6 +9,6 @@ namespace Turismo.Components
 {
     public class Help
     {
-        Description Description;
+        MutipleLanguageString Description;
     }
 }

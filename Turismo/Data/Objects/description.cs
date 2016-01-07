@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Turismo.Objects
 {
-    public interface Description
+    public interface MutipleLanguageString
     {
        string _Description { get; set;}
        List<string> AudioList { get; set;}

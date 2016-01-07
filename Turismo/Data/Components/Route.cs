@@ -15,7 +15,7 @@ namespace Turismo.Components
     {
         string Name;
         List<Location> LocationList;
-        Description _Description;
+        MutipleLanguageString _Description;
         Category _Category;
         List<Site> SiteList;
 
@@ -24,7 +24,7 @@ namespace Turismo.Components
         string NameSite;
         Boolean IsItASite = false;
 
-        public Route(string name, Description description, Category category)
+        public Route(string name, MutipleLanguageString description, Category category)
         {
             this.Name = name;
             this._Description = description;

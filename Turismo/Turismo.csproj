@@ -147,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\EN.gif" />
-    <Content Include="Assets\Kasteel van Breda.jpg" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\logo.scale-100.png" />
     <Content Include="Assets\Logo1024x1024.png" />
