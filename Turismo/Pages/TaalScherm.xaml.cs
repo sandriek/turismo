@@ -25,6 +25,7 @@ namespace Turismo.Pages
         public TaalScherm()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         private void TaalGeselecteerd(object sender, TappedRoutedEventArgs e)

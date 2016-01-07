@@ -18,21 +18,27 @@ using System.Threading.Tasks;
 using Turismo.Objects;
 using Turismo.Components;
 using Windows.Storage.Streams;
+using Windows.Devices.Geolocation.Geofencing;
 
 namespace Turismo.Pages
 {
     public sealed partial class KaartScherm : Page
     {
+        const int fenceIndex = 1;
+        MapIcon user = new MapIcon();
+
         DispatcherTimer timer = new DispatcherTimer();
         public KaartScherm()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
+            MapControl1.MapElements.Add(user);
 
             //Settings for timer
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
 
-            
+
 
             RefreshMapLocation();
 
@@ -60,7 +66,7 @@ namespace Turismo.Pages
 
         private async void UpdateRouteOnMap()
         {
-            
+
             List<Location> route = AppGlobal.Instance._CurrentSession.GetToFollowRoute();
 
             if (!route.Any())
@@ -70,7 +76,7 @@ namespace Turismo.Pages
                 AppGlobal.Instance._CurrentSession.FollowedRoute = null;
             }
             else
-            {  
+            {
                 // Get the route between the points.
                 MapRouteFinderResult routePoints = await AppGlobal.Instance._GeoUtil.GetRoutePoint2Point(route);
 
@@ -93,22 +99,25 @@ namespace Turismo.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
-
             AppGlobal.Instance._CurrentSession.CurrentRoute = new Route();
             AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Location>();
             AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance.SiteList.ElementAt(2));
+
+            GeofenceMonitor.Current.Geofences.Clear();
+
             SetPushpins();
             timer.Start();
-            
         }
 
         public async void RefreshMapLocation()
         {
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
             MapControl1.Center = pos.Coordinate.Point;
+            user.NormalizedAnchorPoint = new Point(0.5, 0.5);
+            user.Location = (pos.Coordinate.Point);
+            
         }
-        
+
 
         private void TaalKnop_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +127,27 @@ namespace Turismo.Pages
         private void RouteKnop_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void DrawFences()
+        {
+            var color = Colors.PaleGoldenrod;
+            color.A = 80;
+
+            foreach (var pointlist in GeofenceMonitor.Current.GetFenceGeometries())
+            {
+                var shape = new MapPolygon { FillColor = color, StrokeColor = color, Path = new Geopath(pointlist.Select(p => p.Position)), ZIndex = fenceIndex };
+                MapControl1.MapElements.Add(shape);
+            }
+        }
+
+        private void RemoveGeofences()
+        {
+            var routeFences = MapControl1.MapElements.Where(p => p.ZIndex == fenceIndex).ToList();
+            foreach (var fence in routeFences)
+            {
+                MapControl1.MapElements.Remove(fence);
+            }
         }
     }
 }

@@ -109,6 +109,8 @@
     <Compile Include="Data\Objects\Language.cs" />
     <Compile Include="Data\Objects\Location.cs" />
     <Compile Include="Library\ErrorHandler.cs" />
+    <Compile Include="Library\GeofenceMonitorExtentions.cs" />
+    <Compile Include="Library\GeopointExtensions.cs" />
     <Compile Include="Library\GeoUtil.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

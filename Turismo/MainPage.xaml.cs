@@ -29,6 +29,7 @@ namespace Turismo
         public MainPage()
         {
             this.InitializeComponent();
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
