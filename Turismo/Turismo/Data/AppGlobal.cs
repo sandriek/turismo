@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Turismo.Components;
 using Turismo.Library;
+using Windows.Devices.Geolocation;
 
 namespace Turismo.Data
 {
@@ -9,7 +10,7 @@ namespace Turismo.Data
     {
         private static AppGlobal _Instance;
         public GeoUtil _GeoUtil;
-        protected List<Site> SiteList;
+        public List<Site> SiteList;
         protected List<Route> RouteList;
         public CurrentSession _CurrentSession;
         protected List<Help> HelpDescriptionList;
@@ -23,6 +24,13 @@ namespace Turismo.Data
             RouteList = new List<Route>();
             _CurrentSession = new CurrentSession();
             HelpDescriptionList = new List<Help>();
+
+            SiteList.Add(new Site(1, new BasicGeoposition() { Latitude = 51.5888, Longitude = 004.7749 }));
+            SiteList.Add(new Site(2, new BasicGeoposition() { Latitude = 51.5882, Longitude = 004.7752 }));
+            SiteList.Add(new Site(3, new BasicGeoposition() { Latitude = 51.5881, Longitude = 004.7729 }));
+            SiteList.Add(new Site(4, new BasicGeoposition() { Latitude = 51.5891, Longitude = 004.7733 }));
+            SiteList.Add(new Site(5, new BasicGeoposition() { Latitude = 51.5900, Longitude = 004.7743 }));
         }
+
     }
 }

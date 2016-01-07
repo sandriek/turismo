@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Turismo.Objects;
 using Windows.Devices.Geolocation;
+using Windows.Services.Maps;
 
 namespace Turismo.Library
 {
     public class GeoUtil
     {
+        public GeolocationAccessStatus AccessStatus;
         private Geolocator geoLocator;
         private CancellationTokenSource _cts;
 
@@ -18,12 +19,19 @@ namespace Turismo.Library
         {
             geoLocator = new Geolocator();
             geoLocator.DesiredAccuracy = PositionAccuracy.High;
+
+        }
+
+        public async void RequestAccess()
+        {
+            AccessStatus = await Geolocator.RequestAccessAsync();
+            
         }
 
         public async Task<Geoposition> GetGeoLocation()
         {
-            var accessStatus = await Geolocator.RequestAccessAsync();
-            switch (accessStatus)
+            AccessStatus = GeolocationAccessStatus.Allowed;
+            switch (AccessStatus)
             {
                 case GeolocationAccessStatus.Allowed:
 
@@ -35,7 +43,6 @@ namespace Turismo.Library
 
                         //Carry out the operation
                         return await geoLocator.GetGeopositionAsync().AsTask(token);
-
                     }
                     catch (TaskCanceledException)
                     {
@@ -46,7 +53,7 @@ namespace Turismo.Library
                     {
                         // If there are no location sensors GetGeopositionAsync() 
                         // will timeout -- that is acceptable. 
-                        const int WaitTimeoutHResult = unchecked((int)0x80070102);
+                        const int WaitTimeoutHResult = unchecked((int)0x8070102);
 
                         if (ex.HResult == WaitTimeoutHResult) // WAIT_TIMEOUT 
                         {
@@ -55,7 +62,8 @@ namespace Turismo.Library
                         else
                         {
                             //Om te testen. Moet nog anders. 
-                            var dialog = new Windows.UI.Popups.MessageDialog(ex.ToString());
+                            new Windows.UI.Popups.MessageDialog(ex.ToString());
+                            RequestAccess();
                         }
                         return null;
                     }
@@ -66,34 +74,31 @@ namespace Turismo.Library
 
                 case GeolocationAccessStatus.Denied:
                     ErrorHandler.HandleError("011");
+                    RequestAccess();
                     return null;
 
                 case GeolocationAccessStatus.Unspecified:
                     ErrorHandler.HandleError("011");
+                    RequestAccess();
                     return null;
             }
 
             return null;
         }
 
-        public async Task CheckFenceColission()
+        public async Task<MapRouteFinderResult> GetRoutePoint2Point(List<Location> routeList)
         {
-            var accessStatus = await Geolocator.RequestAccessAsync();
-
-            switch (accessStatus)
+            List<Geopoint> geoList = new List<Geopoint>();
+            geoList.Add(((await GetGeoLocation()).Coordinate.Point));
+            
+            foreach(Location l in routeList)
             {
-                case GeolocationAccessStatus.Allowed:
-
-                    break;
-
-                case GeolocationAccessStatus.Denied:
-                    ErrorHandler.HandleError("011");
-                    break;
-
-                case GeolocationAccessStatus.Unspecified:
-                    ErrorHandler.HandleError("011");
-                    break;
+                geoList.Add(new Geopoint(l.Position));
             }
+
+            // Get the route between the points.
+            return await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geoList);
+
         }
     }
 }

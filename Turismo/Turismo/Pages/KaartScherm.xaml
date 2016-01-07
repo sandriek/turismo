@@ -16,10 +16,13 @@
     </Page.BottomAppBar>
     
     <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Maps:MapControl
-       x:Name="MapControl1"            
-       ZoomInteractionMode="GestureAndControl"
-       TiltInteractionMode="GestureAndControl"   
-       MapServiceToken="LmASekjs1bjQfxvA4OM3~V85W7tCphoOfYRlRHoYQZQ~Av6XwRGn0FrD0PhSTpCprZy12knFFh-UPKHGvEOnEISST7c5iHqwDbl-oN-TnTuY"/>
+        <Maps:MapControl x:Name="MapControl1"
+                         ZoomLevel="18"
+                         LandmarksVisible="true"
+                         ZoomInteractionMode="GestureOnly"
+                         TiltInteractionMode="GestureOnly"
+                         RotateInteractionMode="GestureOnly"
+                         MapServiceToken="LmASekjs1bjQfxvA4OM3~V85W7tCphoOfYRlRHoYQZQ~Av6XwRGn0FrD0PhSTpCprZy12knFFh-UPKHGvEOnEISST7c5iHqwDbl-oN-TnTuY"
+                         />
     </Grid>
 </Page>

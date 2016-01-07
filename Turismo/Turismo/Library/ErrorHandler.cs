@@ -17,31 +17,41 @@ namespace Turismo.Library
             switch (ErrorCode)
             {
                 case "010":
-                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.NL)
+                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
                     {
                         dialog.Content = "Er zijn geen GPS sensoren gevonden. Deze kunnen mogelijk uitgeschakeld zijn.";
                     }
-                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.EN)
+                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
                     {
                         dialog.Content = "There are no GPS sensors found. These might be turned off.";
                     }
                     break;
                 case "011":
-                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.NL)
+                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
                     {
                         dialog.Content = "Deze App heeft geen toegang tot u locatie!";
                     }
-                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.EN)
+                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
                     {
                         dialog.Content = "This Application has no access to your location!";
                     }
                     break;
+                case "020":
+                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
+                    {
+                        dialog.Content = "Er is geen locatie gevonden!";
+                    }
+                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
+                    {
+                        dialog.Content = "No location found!";
+                    }
+                    break;
                 case "100":
-                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.NL)
+                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
                     {
                         dialog.Content = "De GPS connectie is zeer slecht"; 
                     }
-                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.language.EN)
+                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
                     {
                         dialog.Content = "Bad GPS Connection!";
                     }
