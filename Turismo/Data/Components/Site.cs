@@ -6,24 +6,94 @@ using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
 using Turismo.Objects;
+using Windows.UI.Xaml.Controls;
+using Turismo.Data.Objects;
+using System.IO;
+using System.Diagnostics;
 
 namespace Turismo.Components
 {
     public class Site : Location
     {
         public int id { get; set; }
-        public string name { get; set; }
-        public BasicGeoposition Position { get; set; }
-        public Geofence Fence { get; set; }
-        public List<string> ImageGallery { get; set; }
-        public Description Description { get; set; }
+        public string Name { get; }
+        public BasicGeoposition Position { get; }
+        public Geofence Fence { get; }
+        public MultipleLanguageString Description { get; private set; }
+        public Image Image { get; private set; }
 
-        public Site(int ID, BasicGeoposition post)
+        public Site(int id, string name, BasicGeoposition Position)
         {
-            id = ID;
-            Position = post;
-            Fence = new Geofence(id.ToString(), new Geocircle(Position, 10, 0), MonitoredGeofenceStates.Entered | MonitoredGeofenceStates.Exited, true);
-            GeofenceMonitor.Current.Geofences.Add(Fence);
+            this.id = id;
+            this.Name = name;            
+            this.Position = Position;            
+            SetDescription();
+            AddFence();
         }
+
+        public void AddFence()
+        {
+            // Replace if it already exists for this maneuver key
+            var oldFence = GeofenceMonitor.Current.Geofences.Where(p => p.Id == id.ToString()).FirstOrDefault();
+            if (oldFence != null)
+            {
+                GeofenceMonitor.Current.Geofences.Remove(oldFence);
+            }
+
+            Geocircle geocircle = new Geocircle(Position, 25);
+
+            bool singleUse = true;
+
+            MonitoredGeofenceStates mask = 0;
+
+            mask |= MonitoredGeofenceStates.Entered;
+            mask |= MonitoredGeofenceStates.Exited;
+
+            var geofence = new Geofence(id.ToString(), geocircle, mask, singleUse, TimeSpan.FromSeconds(1));
+            GeofenceMonitor.Current.Geofences.Add(geofence);
+        }
+
+        private void SetDescription()
+        {
+            string nl = "";
+            string en = "";
+
+            //Debug.WriteLine($"Strings are first time set: {nl},{en}");
+
+            nl = GetText("_nl");
+            en = GetText("_en");
+
+            //Debug.WriteLine($"Strings are second time set: {nl},{en}");
+
+            if (string.IsNullOrEmpty(nl))
+            {
+                nl = "Er is over deze bezienswaardigheid geen extra informatie";
+            }
+            if (string.IsNullOrEmpty(en))
+            {
+                en = "There is no information about this sight";
+            }
+            //Debug.WriteLine($"Strings are third time set: {nl},{en}");
+            Description = new MultipleLanguageString(nl, en);
+        }
+
+        private string GetText(string language)
+        {
+            string linkText = "Pages/Text/" + Name+language + ".txt";
+            if (File.Exists(linkText))
+            {
+                string[] route = File.ReadAllLines(linkText);
+                string text = "";
+                foreach (string s in route)
+                {
+                    text += s + Environment.NewLine;
+                }
+                return text;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }        
     }
 }

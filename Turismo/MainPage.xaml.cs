@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using Turismo.Components;
 using Turismo.Data;
-using Turismo.Library;
+using Turismo.Objects;
 using Turismo.Pages;
-using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Turismo.ViewModels;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,8 +17,9 @@ namespace Turismo
     {
         public MainPage()
         {
-            this.InitializeComponent();
-            this.NavigationCacheMode = NavigationCacheMode.Enabled;
+            InitializeComponent();
+            DataContext = MainPageViewModel.Instance;
+            AppGlobal.Instance.RouteList.Add(new Route("HistorischeRoute", Category.category.Historical));
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
@@ -39,12 +29,17 @@ namespace Turismo
 
         private void RouteKnop_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(KaartScherm));
+            Frame.Navigate(typeof(RouteScherm));
         }
 
         private void TaalKnop_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(TaalScherm));
+        }
+
+        private void Popup_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Bezienswaardigheidpopup));
         }
     }
 }

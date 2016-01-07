@@ -36,16 +36,6 @@ namespace Turismo.Library
                         dialog.Content = "This Application has no access to your location!";
                     }
                     break;
-                case "020":
-                    if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
-                    {
-                        dialog.Content = "Er is geen locatie gevonden!";
-                    }
-                    else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
-                    {
-                        dialog.Content = "No location found!";
-                    }
-                    break;
                 case "100":
                     if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
                     {
@@ -56,7 +46,7 @@ namespace Turismo.Library
                         dialog.Content = "Bad GPS Connection!";
                     }
                     dialog.Commands.Add(new Windows.UI.Popups.UICommand("Oke") { Id = 0 });
-                    var result = await dialog.ShowAsync();
+                    await dialog.ShowAsync();                    
                     break;
 
             }

@@ -10,17 +10,21 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Name="TaalKnop" Width="154" Icon="Globe" Label="Taal selecteren" Click="TaalKnop_Click"/>
-            <AppBarButton x:Name="RouteKnop" Width="154" Icon="AlignCenter" Label="Route selecteren" Click="RouteKnop_Click"/>
+
+            <AppBarButton x:Name="TaalKnop" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="RouteKnop"  Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
+            <AppBarButton x:Name="InfoKnop" Icon="ContactInfo" Label="{Binding InfoKnopLabel.Text}" Click="InfoKnop_Click"/>
+            <AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
-    
+
     <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Maps:MapControl x:Name="MapControl1"
+        <Maps:MapControl
+                        x:Name="MapControl1"
                          ZoomLevel="18"
                          LandmarksVisible="true"
                          ZoomInteractionMode="GestureOnly"
-                         TiltInteractionMode="GestureOnly"
+                         TiltInteractionMode="GestureAndControl"
                          RotateInteractionMode="GestureOnly"
                          MapServiceToken="LmASekjs1bjQfxvA4OM3~V85W7tCphoOfYRlRHoYQZQ~Av6XwRGn0FrD0PhSTpCprZy12knFFh-UPKHGvEOnEISST7c5iHqwDbl-oN-TnTuY"
                          />

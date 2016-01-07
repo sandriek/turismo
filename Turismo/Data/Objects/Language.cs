@@ -8,6 +8,6 @@ namespace Turismo.Objects
 {
     public enum Language
     {
-       NL, EN
+        NL,EN
     }
 }

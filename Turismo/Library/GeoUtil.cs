@@ -1,70 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
-using Windows.Devices.Geolocation.Geofencing;
 using Windows.Services.Maps;
-using Windows.UI.Core;
-using Windows.UI;
-using Windows.UI.Xaml.Controls;
-using Turismo.Pages;
-using Windows.UI.Popups;
 
 namespace Turismo.Library
 {
     public class GeoUtil
     {
-        public GeolocationAccessStatus AccessStatus;
         private Geolocator geoLocator;
         private CancellationTokenSource _cts;
+        public GeolocationAccessStatus AccessStatus;
 
 
         public GeoUtil()
         {
             geoLocator = new Geolocator();
-            GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
             geoLocator.DesiredAccuracy = PositionAccuracy.High;
-
         }
 
-        private void GeofenceStateChanged(GeofenceMonitor sender, object args)
-        {
-            if (sender.Geofences.Any())
-            {
-                var reports = sender.ReadReports();
-                foreach (var report in reports)
-                {
-                    switch (report.NewState)
-                    {
-                        case GeofenceState.Entered:
-                            {
-                                new MessageDialog("Boem");
-                                break;
-                            }
-
-                        case GeofenceState.Exited:
-                            {
-                                new MessageDialog("Niks meer aan de hand");
-                                break;
-                            }
-                    }
-                }
-            }
-        }
+        
 
         public async void RequestAccess()
         {
             AccessStatus = await Geolocator.RequestAccessAsync();
-
         }
 
         public async Task<Geoposition> GetGeoLocation()
         {
-            AccessStatus = GeolocationAccessStatus.Allowed;
-            switch (AccessStatus)
+            var accessStatus = await Geolocator.RequestAccessAsync();
+            switch (accessStatus)
             {
                 case GeolocationAccessStatus.Allowed:
 
@@ -76,6 +43,7 @@ namespace Turismo.Library
 
                         //Carry out the operation
                         return await geoLocator.GetGeopositionAsync().AsTask(token);
+
                     }
                     catch (TaskCanceledException)
                     {
@@ -86,7 +54,7 @@ namespace Turismo.Library
                     {
                         // If there are no location sensors GetGeopositionAsync() 
                         // will timeout -- that is acceptable. 
-                        const int WaitTimeoutHResult = unchecked((int)0x8070102);
+                        const int WaitTimeoutHResult = unchecked((int)0x80070102);
 
                         if (ex.HResult == WaitTimeoutHResult) // WAIT_TIMEOUT 
                         {
@@ -95,8 +63,7 @@ namespace Turismo.Library
                         else
                         {
                             //Om te testen. Moet nog anders. 
-                            new Windows.UI.Popups.MessageDialog(ex.ToString());
-                            RequestAccess();
+                            var dialog = new Windows.UI.Popups.MessageDialog(ex.ToString());
                         }
                         return null;
                     }
@@ -107,12 +74,10 @@ namespace Turismo.Library
 
                 case GeolocationAccessStatus.Denied:
                     ErrorHandler.HandleError("011");
-                    RequestAccess();
                     return null;
 
                 case GeolocationAccessStatus.Unspecified:
                     ErrorHandler.HandleError("011");
-                    RequestAccess();
                     return null;
             }
 
@@ -130,8 +95,9 @@ namespace Turismo.Library
             }
 
             // Get the route between the points.
-            return await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geoList);
+            MapRouteFinderResult result = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geoList);
 
+            return result;
         }
     }
 }
