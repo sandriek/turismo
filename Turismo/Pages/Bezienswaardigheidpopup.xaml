@@ -19,7 +19,7 @@
                Margin="50"
                MaxWidth="360" MinHeight="114" MaxHeight="214"
             />
-        <TextBox x:Name="FileText" Text="{Binding text}" 
+            <TextBox x:Name="FileText" Text="{Binding CurrentSite.Description.Text}" 
                VerticalAlignment="Center" TextWrapping="Wrap" 
                Margin="25"
                MaxHeight="376" 

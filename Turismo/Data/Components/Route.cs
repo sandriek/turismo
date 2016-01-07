@@ -73,10 +73,10 @@ namespace Turismo.Components
                     if (delen[2] != " ")
                     {
                         IsItASite = true;
-                        SiteList.Add(new Site(NameSite, Position, (Image)Images.GetValue(1)));
+                        SiteList.Add(new Site(NameSite, Position));
                     }
 
-                    Location RP = new RoutePoint(NameSite, _Description, Position, IsItASite);
+                    Location RP = new RoutePoint(NameSite,Position);
                     LocationList.Add(RP);
                     
                 }

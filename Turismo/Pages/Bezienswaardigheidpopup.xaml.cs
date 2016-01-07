@@ -31,31 +31,10 @@ namespace Turismo.Pages
         {
             this.InitializeComponent();
             bpvm = BezienswaardigheidsPopupViewModel.Instance;
-            DataContext = bpvm;
-            FindText();
+            DataContext = bpvm;           
             FindPicture();
         }
-
-        public void FindText()
-        {            
-            string linkText = "Pages/Text/" + bpvm.CurrentSite.Name+ ".txt";
-            if (File.Exists(linkText))
-            {
-                string[] route = File.ReadAllLines(linkText);
-                string text = "";
-                foreach (string s in route)
-                {
-                    text += s + Environment.NewLine;
-                }
-                FileText.Text = text;
-            }
-            else
-            {
-                FileText.Text = "Er is over deze bezienswaardigheid geen extra informatie";
-            }
-        }
-
-
+        
         public void FindPicture()
         {                
             BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.Name+ ".jpg");

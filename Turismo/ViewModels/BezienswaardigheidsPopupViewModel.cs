@@ -32,7 +32,7 @@ namespace Turismo.ViewModels
 
         private BezienswaardigheidsPopupViewModel()
         {
-            CurrentSite = new Site("Kasteel van Breda", null, new Windows.Devices.Geolocation.BasicGeoposition(),null);
+            CurrentSite = new Site("Kasteel van Breda", new Windows.Devices.Geolocation.BasicGeoposition());
         }
     }
 }
