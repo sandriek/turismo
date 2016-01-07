@@ -22,7 +22,7 @@ namespace Turismo.Components
         {
             id = ID;
             Position = post;
-            Fence = new Geofence(id.ToString(), new Geocircle(Position, 10,0));
+            Fence = new Geofence(id.ToString(), new Geocircle(Position, 10,0), MonitoredGeofenceStates.Entered, true);
         }
     }
 }
