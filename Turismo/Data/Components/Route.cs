@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Turismo.Data.Objects;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml.Controls;
@@ -15,7 +16,7 @@ namespace Turismo.Components
     {
         string Name;
         List<Location> LocationList;
-        MutipleLanguageString _Description;
+        MultipleLanguageString _Description;
         Category _Category;
         List<Site> SiteList;
 
@@ -24,7 +25,7 @@ namespace Turismo.Components
         string NameSite;
         Boolean IsItASite = false;
 
-        public Route(string name, MutipleLanguageString description, Category category)
+        public Route(string name, MultipleLanguageString description, Category category)
         {
             this.Name = name;
             this._Description = description;
