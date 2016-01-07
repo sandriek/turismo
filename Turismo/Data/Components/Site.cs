@@ -33,12 +33,12 @@ namespace Turismo.Components
             string nl = "";
             string en = "";
 
-            Debug.WriteLine($"Strings are first time set: {nl},{en}");
+            //Debug.WriteLine($"Strings are first time set: {nl},{en}");
 
             nl = GetText("_nl");
             en = GetText("_en");
 
-            Debug.WriteLine($"Strings are second time set: {nl},{en}");
+            //Debug.WriteLine($"Strings are second time set: {nl},{en}");
 
             if (string.IsNullOrEmpty(nl))
             {
@@ -48,7 +48,7 @@ namespace Turismo.Components
             {
                 en = "There is no information about this sight";
             }
-            Debug.WriteLine($"Strings are third time set: {nl},{en}");
+            //Debug.WriteLine($"Strings are third time set: {nl},{en}");
             Description = new MultipleLanguageString(nl, en);
         }
 

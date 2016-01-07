@@ -32,7 +32,6 @@ namespace Turismo.Components
 
         private void FillLocationList()
         {
-            bool IsItASite = false;
             double NorthLatitude = 0.0, WesternLongitude = 0.0;
             string filename = "Assets/Routes/" + Name + ".txt";
             DirectoryInfo di = new DirectoryInfo("Pages/Pictures");
@@ -72,11 +71,9 @@ namespace Turismo.Components
 
                     if (delen[2] != " ")
                     {
-                        IsItASite = true;
                         SiteList.Add(new Site(NameSite, Position));
                     }
-
-                    Location RP = new RoutePoint(NameSite,Position);
+                    Location RP = new RoutePoint(NameSite, Position);
                     LocationList.Add(RP);
                     
                 }
