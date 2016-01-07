@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Turismo.Objects
 {
-    public class Language
+    public enum Language
     {
-        public enum language { NL, EN}
+        NL,EN
     }
 }

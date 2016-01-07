@@ -19,7 +19,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Kies een taal123" FontSize="24" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="0" Text="{Binding Title.Text,Mode=OneWay}" FontSize="24" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <StackPanel Grid.Row="1" Background="#49B9E8" Orientation="Horizontal">
             <Button Name="NLFlag" Width="150" Height="110" Margin="15" BorderBrush="Black"

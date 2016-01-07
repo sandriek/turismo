@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Turismo.Components;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
@@ -14,8 +11,15 @@ namespace Turismo.Data
         private Geoposition CurrentLocation;
         private List<Location> FollowedRoute;
         private Route CurrentRoute;
-        public Language.language CurrentLanguage { get; set; }
 
+        private Language _currentLanguage;
+
+        public Language CurrentLanguage
+        {
+            get { return _currentLanguage; }
+            set { _currentLanguage = value; LanguagedIsChanged();  }
+        }
+        
         public CurrentSession()
         {
 
@@ -25,8 +29,20 @@ namespace Turismo.Data
         {
             switch(newLang)
             {
-                case "NL": CurrentLanguage = Language.language.NL; break;
-                case "EN": CurrentLanguage = Language.language.EN; break;
+                case "NL": CurrentLanguage = Language.NL; break;
+                case "EN": CurrentLanguage = Language.EN; break;
+            }
+        }
+
+
+        public static event EventHandler LanguageChanged;
+        public static void LanguagedIsChanged()
+        {
+            var handler = LanguageChanged;
+            if(handler != null)
+            {
+                //Debug.WriteLine("Language is changed");
+                handler(null, new EventArgs());
             }
         }
     }
