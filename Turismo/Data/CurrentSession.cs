@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Turismo.Components;
+using Turismo.Data.Objects;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
 
@@ -11,7 +13,32 @@ namespace Turismo.Data
     {
         public Geoposition CurrentLocation;
         public List<Location> FollowedRoute;
-        public Route CurrentRoute;
+
+        public Route _currentRoute;
+
+        public Route CurrentRoute
+        {
+            get { return _currentRoute; }
+            set { _currentRoute = value; RouteIsChanged(); }
+        }
+
+        public static event EventHandler RouteChanged;
+        public static void RouteIsChanged()
+        {
+            var handler = RouteChanged;
+            if (handler != null)
+            {
+                //Debug.WriteLine("Language is changed");
+                handler(null, new EventArgs());
+            }
+        }
+
+        public void SwitchRoute(Route newRoute)
+        {
+            MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
+            CurrentRoute = new Route("HistorischeRoute", mls, 1000);
+            Debug.WriteLine("Route is changed");
+        }
 
         public Language _currentLanguage;
 
