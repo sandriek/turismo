@@ -35,18 +35,14 @@ namespace Turismo.Data
 
         public void SwitchRoute(string newRoute)
         {
-            if(newRoute != CurrentRoute.Name)
+            switch (newRoute)
             {
-                switch (newRoute)
-                {
-                    //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
-                    case "HistorischeRoute":
-                        MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-                        CurrentRoute = new Route("HistorischeRoute", mls, 1000);
-                        Debug.WriteLine("Route is changed");
-                        break;
-                }
-                
+                //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
+                case "HistorischeRoute":
+                    MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
+                    CurrentRoute = new Route("HistorischeRoute", mls, 1000);
+                    Debug.WriteLine("Route is changed");
+                    break;
             }
         }
 
@@ -55,9 +51,9 @@ namespace Turismo.Data
         public Language CurrentLanguage
         {
             get { return _currentLanguage; }
-            set { _currentLanguage = value; LanguagedIsChanged();  }
+            set { _currentLanguage = value; LanguagedIsChanged(); }
         }
-        
+
         public CurrentSession()
         {
             FollowedRoute = new List<Location>();
@@ -65,7 +61,7 @@ namespace Turismo.Data
 
         public void SwitchLanguage(string newLang)
         {
-            switch(newLang)
+            switch (newLang)
             {
                 case "NL": CurrentLanguage = Language.NL; break;
                 case "EN": CurrentLanguage = Language.EN; break;
@@ -77,7 +73,7 @@ namespace Turismo.Data
         public static void LanguagedIsChanged()
         {
             var handler = LanguageChanged;
-            if(handler != null)
+            if (handler != null)
             {
                 //Debug.WriteLine("Language is changed");
                 handler(null, new EventArgs());
