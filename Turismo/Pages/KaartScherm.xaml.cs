@@ -111,6 +111,13 @@ namespace Turismo.Pages
             GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            timer.Stop();
+            GeofenceMonitor.Current.GeofenceStateChanged -= GeofenceStateChanged;
+            MapControl1.MapElements.Clear();
+        }
+
         public async void RefreshMapLocation()
         {
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
@@ -192,6 +199,12 @@ namespace Turismo.Pages
                 timer.Start();
             }
             running = !running;
+        }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            AppGlobal.Instance._CurrentSession = new CurrentSession();
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

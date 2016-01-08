@@ -10,13 +10,18 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-
-            <AppBarButton x:Name="TaalKnop" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
-            <AppBarButton x:Name="RouteKnop"  Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
-            <AppBarButton x:Name="InfoKnop" Icon="ContactInfo" Label="{Binding InfoKnopLabel.Text}" Click="InfoKnop_Click"/>
-            <!--<AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>-->
-            <AppBarButton x:Name="pauseButton" Icon="Pause" Label="Pause" Click="pauseButton_Click"/>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="TaalKnop" Width="100" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
+                <AppBarButton x:Name="RouteKnop" Width="100"  Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
+                <!--<AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>-->
+                <AppBarButton x:Name="pauseButton" Width="100" Icon="Pause" Label="Pause" Click="pauseButton_Click"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="Reset" Click="Reset_Click" Label="Reset App"/>
+                <AppBarButton x:Name="InfoKnop" Icon="ContactInfo" Label="{Binding InfoKnopLabel.Text}" Click="InfoKnop_Click"/>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
+
     </Page.BottomAppBar>
 
     <Grid x:Name="pageGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
