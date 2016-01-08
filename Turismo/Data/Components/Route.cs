@@ -17,7 +17,11 @@ namespace Turismo.Components
         string Name;
         List<Location> LocationList;       
         Category Category;        
-        List<Site> SiteList;       
+        List<Site> SiteList;
+
+
+        MultipleLanguageString Beschrijving;
+        int Afstand;
         
 
         public Route(string name,  Category category)
@@ -25,6 +29,16 @@ namespace Turismo.Components
         {
             Name = name;            
             Category = category;
+            LocationList = new List<Location>();
+            SiteList = new List<Site>();
+            FillLocationList();
+        }
+
+        public Route(string name, MultipleLanguageString beschrijving, int afstand)
+        {
+            Name = name;
+            Beschrijving = beschrijving;
+            Afstand = afstand;
             LocationList = new List<Location>();
             SiteList = new List<Site>();
             FillLocationList();
@@ -82,6 +96,12 @@ namespace Turismo.Components
             {
                 Debug.WriteLine("De gewenste route is niet gevonden.");
             }
+        }
+
+
+        public override string ToString()
+        {
+            return "" + Name + System.Environment.NewLine + Beschrijving.Text + System.Environment.NewLine + Afstand + "meter.";
         }
     }
 }

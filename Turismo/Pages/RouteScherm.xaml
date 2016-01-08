@@ -7,28 +7,23 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-        <Page.BottomAppBar>
-            <CommandBar>
-                <AppBarButton x:Name="KaartKnop" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
-            </CommandBar>
-        </Page.BottomAppBar>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Name="KaartKnop" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Route naam"/>
-        <TextBlock Grid.Column="1" Text="Aantal meters"/>
-        <TextBlock Grid.Column="2" Text="Aantal Bezienswaardigheden"/>
-        <TextBlock Grid.Row="1" Text="Historische Kilometer"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="1000"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="28"/>
-        <Button Grid.Row="1" Grid.Column="3" Content="Start" Click="Button_Click"/>
+        <TextBlock x:Name="BeschikbareRoutes" Text="{Binding texten}" Margin="35,25,0,0" />
+        <ListView x:Name="RouteLijst"                   
+                  ScrollViewer.VerticalScrollMode="Auto"                   
+                  Margin="25"
+                  Grid.Row="1" VerticalAlignment="Top" ItemClick="RouteLijst_ItemClick">
+        </ListView>
+
+
     </Grid>
 </Page>
