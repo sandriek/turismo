@@ -16,14 +16,14 @@
         <Image x:Name="FilePicture"
                HorizontalAlignment="Center" 
                VerticalAlignment="Top"
-               Margin="50"
-               MaxWidth="360" MinHeight="114" MaxHeight="214"
+               Margin="50,10"
+               MaxWidth="360" MinHeight="214" MaxHeight="214"
             />
             <TextBox x:Name="FileText" Text="{Binding CurrentSite.Description.Text}" 
                VerticalAlignment="Center" TextWrapping="Wrap" 
                Margin="25"
-               MaxHeight="376" 
-               IsReadOnly="True" BorderThickness="0" MinHeight="376"/>
+               MaxHeight="351" 
+               IsReadOnly="True" BorderThickness="0" MinHeight="351"/>
         </StackPanel>
     </Grid>
 </Page>

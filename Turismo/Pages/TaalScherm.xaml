@@ -21,14 +21,14 @@
 
         <TextBlock Grid.Row="0" Text="{Binding Title.Text,Mode=OneWay}" FontSize="24" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <StackPanel Grid.Row="1" Background="#49B9E8" Orientation="Horizontal">
-            <Button Name="NLFlag" Width="150" Height="110" Margin="15" BorderBrush="Black"
+        <StackPanel Grid.Row="1" Background="#49B9E8" Orientation="Vertical" Canvas.ZIndex="-1">
+            <Button Name="NLFlag" Width="150" Height="110" Margin="105,30,15,15" BorderBrush="Black"
                     BorderThickness="1" VerticalAlignment="Top" Click="NLFlag_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="..\Assets\NL.jpg" Stretch="Fill"/>
                 </Button.Background>
             </Button>
-            <Button Name="ENFlag" Width="150" Height="110" Margin="15" BorderBrush="Black"
+            <Button Name="ENFlag" Width="150" Height="110" Margin="105,15,15,15" BorderBrush="Black"
                     BorderThickness="1" VerticalAlignment="Top" Click="ENFlag_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="..\Assets\EN.gif" Stretch="UniformToFill"/>
