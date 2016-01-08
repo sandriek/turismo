@@ -107,6 +107,7 @@ namespace Turismo.Pages
         {
             SetPushpins();
             timer.Start();
+            GeofenceMonitor.Current.GeofenceStateChanged += GeofenceStateChanged;
         }
 
         public async void RefreshMapLocation()
@@ -114,6 +115,7 @@ namespace Turismo.Pages
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
             MapControl1.Center = pos.Coordinate.Point;
             user.Location = pos.Coordinate.Point;
+            user.NormalizedAnchorPoint = new Point(0.5, 0.5);
             user.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/icons/pin65.png"));
         }
 
@@ -128,7 +130,7 @@ namespace Turismo.Pages
                     {
                         case GeofenceState.Entered:
                             {
-                                new MessageDialog("Boem");
+                                
                                 break;
                             }
 

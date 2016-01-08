@@ -32,6 +32,7 @@ namespace Turismo.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Objects.Location>();
             AppGlobal.Instance._CurrentSession.CurrentRoute = AppGlobal.Instance.RouteList.Where(p => p.Name == routeBTN.Content.ToString()).FirstOrDefault();
             AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());
 
