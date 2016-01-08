@@ -14,7 +14,8 @@
             <AppBarButton x:Name="TaalKnop" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
             <AppBarButton x:Name="RouteKnop"  Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
             <AppBarButton x:Name="InfoKnop" Icon="ContactInfo" Label="{Binding InfoKnopLabel.Text}" Click="InfoKnop_Click"/>
-            <AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>
+            <!--<AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>-->
+            <AppBarButton x:Name="pauseButton" Icon="Pause" Label="Pause" Click="pauseButton_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
 

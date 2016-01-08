@@ -27,6 +27,7 @@ namespace Turismo.Pages
     {
         const int fenceIndex = 1;
         MapIcon user = new MapIcon();
+        private bool running = true;
 
         DispatcherTimer timer = new DispatcherTimer();
         public KaartScherm()
@@ -178,6 +179,19 @@ namespace Turismo.Pages
             {
                 MapControl1.MapElements.Remove(fence);
             }
+        }
+
+        private void pauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (timer.IsEnabled && running)
+            {
+                timer.Stop();
+            }
+            else
+            {
+                timer.Start();
+            }
+            running = !running;
         }
     }
 }
