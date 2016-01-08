@@ -33,11 +33,21 @@ namespace Turismo.Data
             }
         }
 
-        public void SwitchRoute(Route newRoute)
+        public void SwitchRoute(string newRoute)
         {
-            MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-            CurrentRoute = new Route("HistorischeRoute", mls, 1000);
-            Debug.WriteLine("Route is changed");
+            if(newRoute != CurrentRoute.Name)
+            {
+                switch (newRoute)
+                {
+                    //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
+                    case "HistorischeRoute":
+                        MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
+                        CurrentRoute = new Route("HistorischeRoute", mls, 1000);
+                        Debug.WriteLine("Route is changed");
+                        break;
+                }
+                
+            }
         }
 
         public Language _currentLanguage;
