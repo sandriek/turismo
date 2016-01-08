@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Turismo.Components;
 using Turismo.Library;
+using Turismo.ViewModels;
 
 namespace Turismo.Data
 {
@@ -9,10 +10,11 @@ namespace Turismo.Data
     {
         public static AppGlobal _Instance;
         public GeoUtil _GeoUtil;
-        protected List<Site> SiteList;
+        public List<Site> SiteList;
         public List<Route> RouteList;
         public CurrentSession _CurrentSession;
         protected List<Help> HelpDescriptionList;
+        public BezienswaardigheidsPopupViewModel popup;
 
         public static AppGlobal Instance { get { return _Instance ?? (_Instance = new AppGlobal()); } }
 
@@ -23,6 +25,7 @@ namespace Turismo.Data
             RouteList = new List<Route>();
             _CurrentSession = new CurrentSession();
             HelpDescriptionList = new List<Help>();
+            //popup = new BezienswaardigheidsPopupViewModel();
         }
     }
 }

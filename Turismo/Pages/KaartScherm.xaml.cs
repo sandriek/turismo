@@ -130,13 +130,16 @@ namespace Turismo.Pages
                     {
                         case GeofenceState.Entered:
                             {
-                                
+                                foreach (Site s in AppGlobal.Instance.SiteList)
+                                    if(s.id.Equals(report.Geofence.Id))
+                                        BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
+                                Frame.Navigate(typeof(BezienswaardigheidsPopupViewModel));
                                 break;
                             }
 
                         case GeofenceState.Exited:
                             {
-                                new MessageDialog("Niks meer aan de hand");
+                                Frame.Navigate(typeof(KaartScherm));
                                 break;
                             }
                     }
