@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Turismo.Components;
 using Turismo.Data;
 using Turismo.Data.Objects;
+using Turismo.Objects;
 using Turismo.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -31,6 +32,7 @@ namespace Turismo.Pages
         MultipleLanguageString omschrijving;
         MultipleLanguageString textenString;
         string texten;
+        Category.category c;
 
         public RouteScherm()
         {
@@ -46,8 +48,9 @@ namespace Turismo.Pages
             List<Route> routes = new List<Route>();
 
             //Nieuwe route aanmaken
+            c = Category.category.Historical;
             omschrijving = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-            Route r = new Route("HistorischeRoute", omschrijving, 1000);
+            Route r = new Route("HistorischeRoute", omschrijving, 1000, c);
             routes.Add(r);
 
 

@@ -39,8 +39,9 @@ namespace Turismo.Data
             {
                 //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
                 case "HistorischeRoute":
+                    Category.category c = Category.category.Historical;
                     MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-                    CurrentRoute = new Route("HistorischeRoute", mls, 1000);
+                    CurrentRoute = new Route("HistorischeRoute", mls, 1000, c);
                     Debug.WriteLine("Route is changed");
                     break;
             }

@@ -33,11 +33,12 @@ namespace Turismo.Components
             FillLocationList();
         }
 
-        public Route(string name, MultipleLanguageString beschrijving, int afstand)
+        public Route(string name, MultipleLanguageString beschrijving, int afstand, Category.category category)
         {
             Name = name;
             Beschrijving = beschrijving;
             Afstand = afstand;
+            Category = category;
             LocationList = new List<Location>();
             SiteList = new List<Site>();
             FillLocationList();
@@ -99,7 +100,7 @@ namespace Turismo.Components
 
         public override string ToString()
         {
-            return "" + Name + System.Environment.NewLine + Beschrijving.Text + System.Environment.NewLine + Afstand + "meter.";
+            return "" + Name + System.Environment.NewLine + Beschrijving.Text + System.Environment.NewLine + Afstand + "meter." + System.Environment.NewLine + Category;
         }
     }
 }
