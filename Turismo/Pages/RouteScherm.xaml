@@ -21,7 +21,7 @@
         <ListView x:Name="RouteLijst"                   
                   ScrollViewer.VerticalScrollMode="Auto"                   
                   Margin="25"
-                  Grid.Row="1" VerticalAlignment="Top" ItemClick="RouteLijst_ItemClick">
+                  Grid.Row="1" VerticalAlignment="Top" Tapped="RouteLijst_Tapped" >
         </ListView>
 
 

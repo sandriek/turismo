@@ -59,9 +59,14 @@ namespace Turismo.Pages
             Frame.Navigate(typeof(KaartScherm));
         }
 
-        private void RouteLijst_ItemClick(object sender, ItemClickEventArgs e)
+        private void KaartKnop_Click(object sender, RoutedEventArgs e)
         {
-            CurrentSession cs = (CurrentSession)sender;
+            Frame.Navigate(typeof(KaartScherm));
+        }
+
+        private void RouteLijst_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            //CurrentSession cs = (CurrentSession)sender;
             //FIX
             //KaartSchermViewModel.Instance.CurrentRoute = (Route)cs.CurrentRoute;
             Frame.Navigate(typeof(KaartScherm));
