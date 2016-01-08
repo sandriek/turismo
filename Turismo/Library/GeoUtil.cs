@@ -13,15 +13,22 @@ namespace Turismo.Library
         private Geolocator geoLocator;
         private CancellationTokenSource _cts;
         public GeolocationAccessStatus AccessStatus;
-
+        private static Geoposition Cur_Position;
 
         public GeoUtil()
         {
-            geoLocator = new Geolocator();
+            geoLocator = new Geolocator()
+            {
+                ReportInterval = 1500
+            };
             geoLocator.DesiredAccuracy = PositionAccuracy.High;
+            geoLocator.PositionChanged += GeoLocator_PositionChanged;
         }
 
-        
+        private void GeoLocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
+        {
+            Cur_Position = args.Position;
+        }
 
         public async void RequestAccess()
         {
@@ -87,7 +94,7 @@ namespace Turismo.Library
         public async Task<MapRouteFinderResult> GetRoutePoint2Point(List<Location> routeList)
         {
             List<Geopoint> geoList = new List<Geopoint>();
-            geoList.Add(((await GetGeoLocation()).Coordinate.Point));
+            geoList.Add(Cur_Position.Coordinate.Point);
 
             foreach (Location l in routeList)
             {
