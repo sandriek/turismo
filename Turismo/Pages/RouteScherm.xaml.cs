@@ -45,30 +45,10 @@ namespace Turismo.Pages
             RouteList.ItemsSource = AppGlobal.Instance.RouteList;
         }
 
-        private void ListBox_Selection(object sender, SelectionChangedEventArgs e)
+
+        private void TaalKnop_Click(object sender, RoutedEventArgs e)
         {
-            if (RouteList.SelectedIndex == -1)
-                return;
-
-            ListBoxItem currentItem = RouteList.ContainerFromIndex(RouteList.SelectedIndex) as ListBoxItem;
-
-            if (currentItem == null)
-                return;
-
-            // Iterate whole listbox tree and search for this items
-            Grid grid = FindDescendantByName<Grid>(currentItem, "ItemGrid");
-
-            if (double.IsNaN(grid.Height))
-            {
-                RouteList.SelectedIndex = -1;
-                grid.Height = 100;
-            }
-            else
-            {
-                grid.Height = double.NaN;
-                RouteList.SelectedIndex = -1;
-            }
-
+            Frame.Navigate(typeof(TaalScherm));
         }
 
         public T FindDescendantByName<T>(DependencyObject obj, string objname) where T : DependencyObject
@@ -126,7 +106,7 @@ namespace Turismo.Pages
         }
 
 
-        private void RouteLijst_Tapped(object sender, TappedRoutedEventArgs e)
+        private void RouteList_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ListView lv = (ListView)sender;
 
@@ -134,10 +114,12 @@ namespace Turismo.Pages
 
             string naam = r.Name;
 
-            Data.AppGlobal.Instance._CurrentSession.SwitchRoute(naam);
+            AppGlobal.Instance._CurrentSession.SwitchRoute(naam);
             if (AppGlobal.Instance._CurrentSession.FollowedRoute == null)
-                AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Objects.Location>();
-            AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());//Weet niet waar deze regel voor is maar ik zag hem staan bij de click methode (click is overbodig geworden)
+            {
+                AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Location>();
+                AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());//Weet niet waar deze regel voor is maar ik zag hem staan bij de click methode (click is overbodig geworden)
+            }
             Frame.Navigate(typeof(KaartScherm));
         }
     }
