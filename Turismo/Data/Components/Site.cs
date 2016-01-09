@@ -20,7 +20,6 @@ namespace Turismo.Components
         public BasicGeoposition Position { get; }
         public Geofence Fence { get; }
         public MultipleLanguageString Description { get; private set; }
-        public Image Image { get; private set; }
 
         public Site(int id, string name, BasicGeoposition Position)
         {

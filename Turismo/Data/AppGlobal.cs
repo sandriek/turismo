@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Turismo.Components;
+using Turismo.Data.Objects;
 using Turismo.Library;
+using Turismo.Objects;
 using Turismo.ViewModels;
 
 namespace Turismo.Data
@@ -25,7 +27,22 @@ namespace Turismo.Data
             RouteList = new List<Route>();
             _CurrentSession = new CurrentSession();
             HelpDescriptionList = new List<Help>();
-            //popup = new BezienswaardigheidsPopupViewModel();
         }
+
+        public void InitializeRoute()
+        {
+            //Nieuwe route aanmaken
+            this.RouteList.Add(new Route(
+                "HistorischeRoute", 
+                new MultipleLanguageString("Een route langs historische gebouwen in Breda.","A route passing historical buildings found in Breda."), 
+                1, 
+                Category.category.Historical));
+            this.RouteList.Add(new Route(
+    "Route2",
+    new MultipleLanguageString("Een route langs historische gebouwen in Breda. en nog veel meer lorum ipsumasdasduoahsdgadhflkghkal;vbasdh poshd gpahsdfashdfhasdoif hasdfi aoiug oadosfuha isdgifua apisud gyf", "A route passing historical buildings found in Breda."),
+    50,
+    Category.category.Historical));
+        }
+
     }
 }

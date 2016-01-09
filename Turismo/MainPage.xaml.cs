@@ -19,7 +19,7 @@ namespace Turismo
         {
             InitializeComponent();
             DataContext = MainPageViewModel.Instance;
-            AppGlobal.Instance.RouteList.Add(new Route("HistorischeRoute", Category.category.Historical));
+            AppGlobal.Instance.InitializeRoute();
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,6 @@
+﻿51.59380,4.77963,VVV Breda,1
+51.59307,4.77969,Liefdeszuster,2
+51.59250,4.77969,Valkenberg,3
+51.59250,4.77969,Nassau Baronie Monument,4
+51.59256,4.77889,The Light House,5
+51.59265,4.77844, ,6

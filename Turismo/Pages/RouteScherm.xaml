@@ -5,25 +5,72 @@
     xmlns:local="using:Turismo.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:Turismo.Components"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:DataType="data:Route" x:Key="routeListTemplate">
+            <Grid Name="ItemGrid" Background="White" Height="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="{x:Bind previewImage}" Stretch="Fill" Grid.Row="0" Grid.Column="0" Width="100" Height="100" />
+
+                <Grid Grid.Row="0" Grid.Column="1" Name="InfoGrid" Margin="10,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{x:Bind Name}" FontSize="20" />
+                    <TextBlock Grid.Row="1" Text="{x:Bind Category}" FontSize="12"/>
+                    <RelativePanel Grid.Row="2">
+                        <TextBlock Name="Afstand" RelativePanel.AlignLeftWithPanel="True" Text="{x:Bind Afstand}" FontSize="12" />
+                        <TextBlock RelativePanel.RightOf="Afstand" Text=" KM" FontSize="12" />
+                    </RelativePanel>
+                    
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="2" Name="MoreGrid" Width="Auto" Margin="0,15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="{x:Bind Beschrijving.Text}" FontSize="14" Margin="12,0,20,0" />
+                </Grid>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
 
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton x:Name="KaartKnop" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#49B9E8">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="BeschikbareRoutes" Text="{Binding texten}" Margin="35,25,0,0" />
-        <ListView x:Name="RouteLijst"                   
-                  ScrollViewer.VerticalScrollMode="Auto"                   
-                  Margin="25"
-                  Grid.Row="1" VerticalAlignment="Top" Tapped="RouteLijst_Tapped" >
-        </ListView>
-
-
+        <StackPanel Background="White" Grid.Row="0">
+            <TextBlock x:Name="BeschikbareRoutes" Margin="0,15" FontSize="20" TextAlignment="Center" Text="{x:Bind headerString.Text}" Width="auto"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2" VerticalScrollMode="Auto">
+            <ListBox Name="RouteList"
+                     Margin="0"
+                     SelectionChanged="ListBox_Selection"
+                     ItemTemplate="{StaticResource routeListTemplate}" 
+                     Background="White">
+            </ListBox>
+        </ScrollViewer>
     </Grid>
 </Page>

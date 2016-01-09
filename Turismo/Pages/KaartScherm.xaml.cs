@@ -17,6 +17,7 @@ using System;
 using Windows.Foundation;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.UI.Xaml.Media;
 
 namespace Turismo.Pages
 {
@@ -193,10 +194,14 @@ namespace Turismo.Pages
             if (timer.IsEnabled && running)
             {
                 timer.Stop();
+                pauseButton.Icon = new FontIcon() { Glyph = "\uE768", FontFamily = new FontFamily("Segoe MDL2 Assets") };
+                pauseButton.InvalidateArrange();
             }
             else
             {
                 timer.Start();
+                pauseButton.Icon = new FontIcon() { Glyph = "\uE769", FontFamily = new FontFamily("Segoe MDL2 Assets") };
+                pauseButton.InvalidateArrange();
             }
             running = !running;
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Turismo.Components;
 using Turismo.Data;
@@ -28,43 +29,95 @@ namespace Turismo.Pages
     /// </summary>
     public sealed partial class RouteScherm : Page
     {
+        MultipleLanguageString headerString;
 
-        MultipleLanguageString omschrijving;
-        MultipleLanguageString textenString;
-        string texten;
-        Category.category c;
 
         public RouteScherm()
         {
-            this.InitializeComponent();
-            DataContext = RouteSchermViewModel.Instance;
+            InitializeComponent();
+            // DataContext = RouteSchermViewModel.Instance;
 
             //De tekst bovenaan de pagina
-            textenString = new MultipleLanguageString("Beschikbare routes", "Available routes");
-            texten = textenString.Text;
-            BeschikbareRoutes.Text = texten;
-
-            //Lijst met alle beschikbare routes
-            List<Route> routes = new List<Route>();
-
-            //Nieuwe route aanmaken
-            c = Category.category.Historical;
-            omschrijving = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-            Route r = new Route("HistorischeRoute", omschrijving, 1000, c);
-            routes.Add(r);
-
+            headerString = new MultipleLanguageString("Beschikbare routes", "Available routes");
+            BeschikbareRoutes.Text = headerString.Text;
 
             //Beschikbare routes koppelen aan de ListView
-            RouteLijst.ItemsSource = routes;
+            RouteList.ItemsSource = AppGlobal.Instance.RouteList;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ListBox_Selection(object sender, SelectionChangedEventArgs e)
         {
-            //AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Objects.Location>();
-            //AppGlobal.Instance._CurrentSession.CurrentRoute = AppGlobal.Instance.RouteList.Where(p => p.Name == routeBTN.Content.ToString()).FirstOrDefault();
-            //AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());
+            if (RouteList.SelectedIndex == -1)
+                return;
 
-            //Frame.Navigate(typeof(KaartScherm));
+            ListBoxItem currentItem = RouteList.ContainerFromIndex(RouteList.SelectedIndex) as ListBoxItem;
+
+            if (currentItem == null)
+                return;
+
+            // Iterate whole listbox tree and search for this items
+            Grid grid = FindDescendantByName<Grid>(currentItem, "ItemGrid");
+
+            if (double.IsNaN(grid.Height))
+            {
+                RouteList.SelectedIndex = -1;
+                grid.Height = 100;
+            }
+            else
+            {
+                grid.Height = double.NaN;
+                RouteList.SelectedIndex = -1;
+            }
+
+        }
+
+        public T FindDescendantByName<T>(DependencyObject obj, string objname) where T : DependencyObject
+        {
+            string controlneve = "";
+
+            Type tyype = obj.GetType();
+            if (tyype.GetProperty("Name") != null)
+            {
+                PropertyInfo prop = tyype.GetProperty("Name");
+                controlneve = prop.GetValue(obj, null).ToString();
+            }
+            else
+            {
+                return null;
+            }
+
+            if (obj is T && objname.ToString().ToLower() == controlneve.ToString().ToLower())
+            {
+                return obj as T;
+            }
+
+            // Check for children
+            int childrenCount = VisualTreeHelper.GetChildrenCount(obj);
+            if (childrenCount < 1)
+                return null;
+
+            // First check all the children
+            for (int i = 0; i <= childrenCount - 1; i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child is T && objname.ToString().ToLower() == controlneve.ToString().ToLower())
+                {
+                    return child as T;
+                }
+            }
+
+            // Then check the childrens children
+            for (int i = 0; i <= childrenCount - 1; i++)
+            {
+                string checkobjname = objname;
+                DependencyObject child = FindDescendantByName<T>(VisualTreeHelper.GetChild(obj, i), objname);
+                if (child != null && child is T && objname.ToString().ToLower() == checkobjname.ToString().ToLower())
+                {
+                    return child as T;
+                }
+            }
+
+            return null;
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
@@ -76,7 +129,6 @@ namespace Turismo.Pages
         private void RouteLijst_Tapped(object sender, TappedRoutedEventArgs e)
         {
             ListView lv = (ListView)sender;
-            Debug.WriteLine(lv.SelectedItem);
 
             Route r = (Route)lv.SelectedItem;
 

@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 using Turismo.Data.Objects;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Turismo.Components
 {
@@ -18,20 +20,10 @@ namespace Turismo.Components
         public List<Location> LocationList;
         public Category.category Category;
         public List<Site> SiteList;
+        public string previewImage;
 
-        MultipleLanguageString Beschrijving;
-        int Afstand;
-
-
-        public Route(string name,  Category.category category)
-
-        {
-            Name = name;            
-            Category = category;
-            LocationList = new List<Location>();
-            SiteList = new List<Site>();
-            FillLocationList();
-        }
+        public MultipleLanguageString Beschrijving;
+        public int Afstand;
 
         public Route(string name, MultipleLanguageString beschrijving, int afstand, Category.category category)
         {
@@ -42,14 +34,13 @@ namespace Turismo.Components
             LocationList = new List<Location>();
             SiteList = new List<Site>();
             FillLocationList();
+            previewImage = "Pictures/" + SiteList.ElementAt(1).Name + ".jpg";
         }
 
         private void FillLocationList()
         {
             double NorthLatitude = 0.0, WesternLongitude = 0.0;
             string filename = "Assets/Routes/" + Name + ".txt";
-            DirectoryInfo di = new DirectoryInfo("Pages/Pictures");
-            FileInfo[] Images = di.GetFiles("*.jpg");
             if (File.Exists(filename))
             {
                 string[] route = File.ReadAllLines(filename);
@@ -97,6 +88,7 @@ namespace Turismo.Components
                 Debug.WriteLine("De gewenste route is niet gevonden.");
             }
         }
+
 
         public override string ToString()
         {
