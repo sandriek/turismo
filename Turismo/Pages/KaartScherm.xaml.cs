@@ -18,6 +18,8 @@ using Windows.Foundation;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml.Media;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 
 namespace Turismo.Pages
 {
@@ -124,16 +126,17 @@ namespace Turismo.Pages
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
             if (pos != null)
             {
-                MapControl1.Center = pos.Coordinate.Point;
+                    MapControl1.Center = pos.Coordinate.Point;
+
                 user.Location = pos.Coordinate.Point;
                 user.NormalizedAnchorPoint = new Point(0.5, 0.5);
                 user.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/icons/pin65.png"));
             }
         }
 
-        private void GeofenceStateChanged(GeofenceMonitor sender, object args)
+        private async void GeofenceStateChanged(GeofenceMonitor sender, object args)
         {
-            if(AppGlobal._Instance.SiteList.Count > 0)
+            if (AppGlobal._Instance.SiteList.Count > 0)
                 if (sender.Geofences.Any())
                 {
                     var reports = sender.ReadReports();
@@ -144,9 +147,14 @@ namespace Turismo.Pages
                             case GeofenceState.Entered:
                                 {
                                     foreach (Site s in AppGlobal.Instance.SiteList)
-                                        if(s.id.Equals(report.Geofence.Id))
+                                        if (s.id.Equals(report.Geofence.Id))
                                             BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
-                                    Frame.Navigate(typeof(BezienswaardigheidsPopupViewModel));
+                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+        () =>
+        {
+            BezienswaardigheidPopup();
+        });
+
                                     break;
                                 }
 
@@ -159,7 +167,6 @@ namespace Turismo.Pages
                     }
                 }
         }
-
 
 
 
@@ -178,12 +185,12 @@ namespace Turismo.Pages
             Frame.Navigate(typeof(InfoScherm));
         }
 
-        private void Popup_Click(object sender, RoutedEventArgs e)
+        private void BezienswaardigheidPopup()
         {
             Frame.Navigate(typeof(Bezienswaardigheidpopup));
         }
 
-        
+
         private void RemoveGeofences()
         {
             var routeFences = MapControl1.MapElements.Where(p => p.ZIndex == fenceIndex).ToList();

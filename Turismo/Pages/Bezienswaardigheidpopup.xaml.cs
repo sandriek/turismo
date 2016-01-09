@@ -27,6 +27,7 @@ namespace Turismo.Pages
     public sealed partial class Bezienswaardigheidpopup : Page
     {        
         private BezienswaardigheidsPopupViewModel bpvm;
+
         public Bezienswaardigheidpopup()
         {
             this.InitializeComponent();
@@ -38,7 +39,6 @@ namespace Turismo.Pages
         public void FindPicture()
         {                
             BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.Name+ ".jpg");
-            //Debug.WriteLine(img.UriSource);
             FilePicture.Source = img;            
         }
 

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Turismo.Data;
 using Turismo.Data.Objects;
 using Turismo.Objects;
 using Windows.Devices.Geolocation;
@@ -76,7 +77,14 @@ namespace Turismo.Components
 
                     if (delen[2] != " ")
                     {
-                        SiteList.Add(new Site(Convert.ToInt32(delen[3]),NameSite, Position));
+                        Site site = new Site(Convert.ToInt32(delen[3]), NameSite, Position);
+                        SiteList.Add(site);
+                        var item = AppGlobal.Instance.SiteList.FirstOrDefault(x => x.Name == site.Name);
+                        if (item == null)
+                        {
+                            AppGlobal.Instance.SiteList.Add(site);
+                        }
+                        
                     }
                     Location RP = new RoutePoint(NameSite, Position);
                     LocationList.Add(RP);

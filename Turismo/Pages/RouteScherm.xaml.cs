@@ -115,9 +115,8 @@ namespace Turismo.Pages
             string naam = r.Name;
 
             AppGlobal.Instance._CurrentSession.SwitchRoute(naam);
-            if (AppGlobal.Instance._CurrentSession.FollowedRoute == null)
+            if (!AppGlobal.Instance._CurrentSession.FollowedRoute.Any())
             {
-                AppGlobal.Instance._CurrentSession.FollowedRoute = new List<Location>();
                 AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());//Weet niet waar deze regel voor is maar ik zag hem staan bij de click methode (click is overbodig geworden)
             }
             Frame.Navigate(typeof(KaartScherm));
