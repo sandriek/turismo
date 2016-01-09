@@ -14,9 +14,10 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,-22,552" Width="372" Height="78" >
+        <ScrollViewer>
+            <Grid>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,10,552" Width="340" Height="78" TextWrapping="WrapWholeWords">
         	<Run Text="Hier vind u informatie over het gebruiken "/>
-        	<LineBreak/>
         	<Run Text="van deze applicatie:"/>
         	<LineBreak/>
         	<Run/>
@@ -26,23 +27,25 @@
         	<Run/>
         	<LineBreak/>
         	<Run/>
-        </TextBlock>
-        <Image x:Name="zelf" HorizontalAlignment="Left" Height="67" Margin="10,143,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/icons/pin65.png"/>
-        <Image x:Name="bezienswaardigheid" HorizontalAlignment="Left" Height="67" Margin="10,215,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/icons/museum35.png"/>
-        <Image x:Name="taalknop" HorizontalAlignment="Left" Height="67" Margin="10,287,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/ITaal.png"/>
-        <Image x:Name="pauzeknop" HorizontalAlignment="Left" Height="67" Margin="10,360,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/Ipauze.png"/>
-        <Image x:Name="routeknop" HorizontalAlignment="Left" Height="67" Margin="10,432,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/IRoute.png"/>
-        <TextBlock x:Name="zelftext" HorizontalAlignment="Left" Height="67" Margin="82,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268">
-        	<Run Text="dit bent u zelf op de kaar"/>
-        	<Run Text="t"/>
-        </TextBlock>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="67" Margin="82,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="268">
-        	<Run Text="dit is een bezienswaardigheid op de kaa"/>
-        	<Run Text="r"/>
-        	<Run Text="t"/>
-        </TextBlock>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="67" Margin="82,287,0,0" TextWrapping="Wrap" Text="dit is de knop voor het selecteren van de taal" VerticalAlignment="Top" Width="268"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="67" Margin="82,360,0,0" TextWrapping="Wrap" Text="deze knop is om de route op pauze te zetten" VerticalAlignment="Top" Width="268"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Height="67" Margin="82,432,0,0" TextWrapping="Wrap" Text="dit is de knop voor het selecteren van een route" VerticalAlignment="Top" Width="268"/>
+                </TextBlock>
+
+
+                <Image x:Name="zelf" HorizontalAlignment="Left" Height="67" Margin="10,143,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/icons/pin65.png"/>
+                <Image x:Name="bezienswaardigheid" HorizontalAlignment="Left" Height="67" Margin="10,215,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/icons/museum35.png"/>
+                <Image x:Name="taalknop" HorizontalAlignment="Left" Height="67" Margin="10,287,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/ITaal.png"/>
+                <Image x:Name="pauzeknop" HorizontalAlignment="Left" Height="67" Margin="10,360,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/Ipauze.png"/>
+                <Image x:Name="routeknop" HorizontalAlignment="Left" Height="67" Margin="10,432,0,0" VerticalAlignment="Top" Width="67" Source="ms-appx:///Assets/IRoute.png"/>
+
+                <TextBlock x:Name="zelftext" HorizontalAlignment="Left" Height="67" Margin="82,143,0,0" TextWrapping="WrapWholeWords" VerticalAlignment="Top" Width="268">
+        	<Run Text="dit bent u zelf op de kaart"/>
+                </TextBlock>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="67" Margin="82,215,0,0" TextWrapping="WrapWholeWords" VerticalAlignment="Top" Width="268">
+        	<Run Text="dit is een bezienswaardigheid op de kaart"/>
+                </TextBlock>
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="67" Margin="82,287,0,0" TextWrapping="WrapWholeWords" Text="dit is de knop voor het selecteren van de taal" VerticalAlignment="Top" Width="268"/>
+                <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="67" Margin="82,360,0,0" TextWrapping="WrapWholeWords" Text="deze knop is om de route op pauze te zetten" VerticalAlignment="Top" Width="268"/>
+                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Height="67" Margin="82,432,0,0" TextWrapping="WrapWholeWords" Text="dit is de knop voor het selecteren van een route" VerticalAlignment="Top" Width="268"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
