@@ -22,17 +22,10 @@ namespace Turismo.ViewModels
             }
         }
 
-        private Site _currentSite;
-        public Site CurrentSite
-        {
-            get { return _currentSite; }
-            set { _currentSite = value; }
-        }
-
 
         private BezienswaardigheidsPopupViewModel()
         {
-            CurrentSite = new Site(0,"Begin Vismarkt", new Windows.Devices.Geolocation.BasicGeoposition());
+           
         }
     }
 }

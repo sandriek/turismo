@@ -13,8 +13,9 @@ namespace Turismo.Data
     {
         public Geoposition CurrentLocation;
         public List<Location> FollowedRoute;
-
+        public Site CurrentSite;
         public Route _currentRoute;
+
 
         public Route CurrentRoute
         {

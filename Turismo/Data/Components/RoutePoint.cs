@@ -15,8 +15,7 @@ namespace Turismo.Components
     {
         public int id { get; set; }
         public string Name { get; set; }
-        public BasicGeoposition Position { get; set; }
-        public Geofence Fence { get; set; }      
+        public BasicGeoposition Position { get; set; }    
 
         public RoutePoint(string name, BasicGeoposition Position)
         {

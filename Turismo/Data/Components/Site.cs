@@ -18,7 +18,7 @@ namespace Turismo.Components
         public int id { get; set; }
         public string Name { get; }
         public BasicGeoposition Position { get; }
-        public Geofence Fence { get; }
+        public Geofence Fence { get; set; }
         public MultipleLanguageString Description { get; private set; }
 
         public Site(int id, string name, BasicGeoposition Position)
@@ -46,10 +46,10 @@ namespace Turismo.Components
             MonitoredGeofenceStates mask = 0;
 
             mask |= MonitoredGeofenceStates.Entered;
-            mask |= MonitoredGeofenceStates.Exited;
 
             var geofence = new Geofence(id.ToString(), geocircle, mask, singleUse, TimeSpan.FromSeconds(1));
             GeofenceMonitor.Current.Geofences.Add(geofence);
+            Fence = geofence;
         }
 
         private void SetDescription()

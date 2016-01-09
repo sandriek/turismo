@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Turismo.Components;
+using Turismo.Data;
 using Turismo.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -26,19 +27,18 @@ namespace Turismo.Pages
     /// </summary>
     public sealed partial class Bezienswaardigheidpopup : Page
     {        
-        private BezienswaardigheidsPopupViewModel bpvm;
-
         public Bezienswaardigheidpopup()
         {
             this.InitializeComponent();
-            bpvm = BezienswaardigheidsPopupViewModel.Instance;
-            DataContext = bpvm;           
+            DataContext = BezienswaardigheidsPopupViewModel.Instance;
+            NameText.Text = AppGlobal.Instance._CurrentSession.CurrentSite.Name;
+            DescText.Text = AppGlobal.Instance._CurrentSession.CurrentSite.Description.Text;
             FindPicture();
         }
         
         public void FindPicture()
         {                
-            BitmapImage img = ImageFromRelativePath(this, "Pictures/" + bpvm.CurrentSite.Name+ ".jpg");
+            BitmapImage img = ImageFromRelativePath(this, "Pictures/" + AppGlobal.Instance._CurrentSession.CurrentSite.Name + ".jpg");
             FilePicture.Source = img;            
         }
 

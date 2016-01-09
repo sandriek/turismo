@@ -14,8 +14,7 @@ namespace Turismo.Objects
     {
         int id { get; }
         string Name { get;}
-        BasicGeoposition Position { get; }
-        Geofence Fence { get; }      
+        BasicGeoposition Position { get; } 
         
     }
 }

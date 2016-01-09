@@ -140,11 +140,6 @@ namespace Turismo.Pages
                 if (sender.Geofences.Any())
                 {
 
-                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-       () =>
-       {
-           BezienswaardigheidPopup();
-       });
 
                     var reports = sender.ReadReports();
                     foreach (var report in reports)
@@ -154,16 +149,20 @@ namespace Turismo.Pages
                             case GeofenceState.Entered:
                                 {
                                     foreach (Site s in AppGlobal.Instance.SiteList)
-                                        if (s.id.Equals(report.Geofence.Id))
-                                            BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
+                                        if (s.Fence != null)
+                                        {
+                                            if (s.Fence.Id.Equals(report.Geofence.Id))
+                                            {
+                                                AppGlobal.Instance._CurrentSession.CurrentSite = s;
+                                            }
+                                        }
 
+                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                       () =>
+                       {
+                           BezienswaardigheidPopup();
+                       });
 
-                                    break;
-                                }
-
-                            case GeofenceState.Exited:
-                                {
-                                    Frame.Navigate(typeof(KaartScherm));
                                     break;
                                 }
                         }
@@ -193,6 +192,10 @@ namespace Turismo.Pages
             Frame.Navigate(typeof(Bezienswaardigheidpopup));
         }
 
+        private void KaartBack()
+        {
+            Frame.Navigate(typeof(KaartScherm));
+        }
 
         private void RemoveGeofences()
         {
