@@ -122,10 +122,13 @@ namespace Turismo.Pages
         public async void RefreshMapLocation()
         {
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
-            MapControl1.Center = pos.Coordinate.Point;
-            user.Location = pos.Coordinate.Point;
-            user.NormalizedAnchorPoint = new Point(0.5, 0.5);
-            user.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/icons/pin65.png"));
+            if (pos != null)
+            {
+                MapControl1.Center = pos.Coordinate.Point;
+                user.Location = pos.Coordinate.Point;
+                user.NormalizedAnchorPoint = new Point(0.5, 0.5);
+                user.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/icons/pin65.png"));
+            }
         }
 
         private void GeofenceStateChanged(GeofenceMonitor sender, object args)
