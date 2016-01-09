@@ -126,7 +126,7 @@ namespace Turismo.Pages
             Geoposition pos = await AppGlobal.Instance._GeoUtil.GetGeoLocation();
             if (pos != null)
             {
-                    MapControl1.Center = pos.Coordinate.Point;
+                MapControl1.Center = pos.Coordinate.Point;
 
                 user.Location = pos.Coordinate.Point;
                 user.NormalizedAnchorPoint = new Point(0.5, 0.5);
@@ -139,6 +139,13 @@ namespace Turismo.Pages
             if (AppGlobal._Instance.SiteList.Count > 0)
                 if (sender.Geofences.Any())
                 {
+
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+       () =>
+       {
+           BezienswaardigheidPopup();
+       });
+
                     var reports = sender.ReadReports();
                     foreach (var report in reports)
                     {
@@ -149,11 +156,7 @@ namespace Turismo.Pages
                                     foreach (Site s in AppGlobal.Instance.SiteList)
                                         if (s.id.Equals(report.Geofence.Id))
                                             BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
-                                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-        () =>
-        {
-            BezienswaardigheidPopup();
-        });
+
 
                                     break;
                                 }
