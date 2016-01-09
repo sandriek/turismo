@@ -133,30 +133,31 @@ namespace Turismo.Pages
 
         private void GeofenceStateChanged(GeofenceMonitor sender, object args)
         {
-            if (sender.Geofences.Any())
-            {
-                var reports = sender.ReadReports();
-                foreach (var report in reports)
+            if(AppGlobal._Instance.SiteList.Count > 0)
+                if (sender.Geofences.Any())
                 {
-                    switch (report.NewState)
+                    var reports = sender.ReadReports();
+                    foreach (var report in reports)
                     {
-                        case GeofenceState.Entered:
-                            {
-                                foreach (Site s in AppGlobal.Instance.SiteList)
-                                    if(s.id.Equals(report.Geofence.Id))
-                                        BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
-                                Frame.Navigate(typeof(BezienswaardigheidsPopupViewModel));
-                                break;
-                            }
+                        switch (report.NewState)
+                        {
+                            case GeofenceState.Entered:
+                                {
+                                    foreach (Site s in AppGlobal.Instance.SiteList)
+                                        if(s.id.Equals(report.Geofence.Id))
+                                            BezienswaardigheidsPopupViewModel.Instance.CurrentSite = s;
+                                    Frame.Navigate(typeof(BezienswaardigheidsPopupViewModel));
+                                    break;
+                                }
 
-                        case GeofenceState.Exited:
-                            {
-                                Frame.Navigate(typeof(KaartScherm));
-                                break;
-                            }
+                            case GeofenceState.Exited:
+                                {
+                                    Frame.Navigate(typeof(KaartScherm));
+                                    break;
+                                }
+                        }
                     }
                 }
-            }
         }
 
 
