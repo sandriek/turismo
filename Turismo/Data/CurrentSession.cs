@@ -29,20 +29,28 @@ namespace Turismo.Data
             var handler = RouteChanged;
             if (handler != null)
             {
-                //Debug.WriteLine("Language is changed");
                 handler(null, new EventArgs());
             }
         }
 
         public void SwitchRoute(string newRoute)
         {
+            Category.category c;
+            MultipleLanguageString mls;
             switch (newRoute)
             {
+
                 //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
                 case "HistorischeRoute":
-                    Category.category c = Category.category.Historical;
-                    MultipleLanguageString mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
+                    c = Category.category.Historical;
+                    mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
                     CurrentRoute = new Route("HistorischeRoute", mls, 1000, c);
+                    Debug.WriteLine("Route is changed");
+                    break;
+                case "Route2":
+                    c = Category.category.Cultural;
+                    mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
+                    CurrentRoute = new Route("Route2", mls, 500, c);
                     Debug.WriteLine("Route is changed");
                     break;
             }
@@ -88,6 +96,8 @@ namespace Turismo.Data
             if(FollowedRoute == null)
             {
                 FollowedRoute = new List<Location>();
+                AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());//Weet niet waar deze regel voor is maar ik zag hem staan bij de click methode (click is overbodig geworden)
+
             }
             if (CurrentRoute != null && FollowedRoute.Any())
             {

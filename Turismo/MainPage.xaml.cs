@@ -19,7 +19,12 @@ namespace Turismo
         {
             InitializeComponent();
             DataContext = MainPageViewModel.Instance;
-            AppGlobal.Instance.InitializeRoute();
+
+            if(AppGlobal.Instance.RouteList.Count == 0)
+            {
+                AppGlobal.Instance.InitializeRoute();
+            }
+
         }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)

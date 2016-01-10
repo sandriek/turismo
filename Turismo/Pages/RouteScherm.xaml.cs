@@ -54,54 +54,6 @@ namespace Turismo.Pages
             Frame.Navigate(typeof(TaalScherm));
         }
 
-        public T FindDescendantByName<T>(DependencyObject obj, string objname) where T : DependencyObject
-        {
-            string controlneve = "";
-
-            Type tyype = obj.GetType();
-            if (tyype.GetProperty("Name") != null)
-            {
-                PropertyInfo prop = tyype.GetProperty("Name");
-                controlneve = prop.GetValue(obj, null).ToString();
-            }
-            else
-            {
-                return null;
-            }
-
-            if (obj is T && objname.ToString().ToLower() == controlneve.ToString().ToLower())
-            {
-                return obj as T;
-            }
-
-            // Check for children
-            int childrenCount = VisualTreeHelper.GetChildrenCount(obj);
-            if (childrenCount < 1)
-                return null;
-
-            // First check all the children
-            for (int i = 0; i <= childrenCount - 1; i++)
-            {
-                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
-                if (child is T && objname.ToString().ToLower() == controlneve.ToString().ToLower())
-                {
-                    return child as T;
-                }
-            }
-
-            // Then check the childrens children
-            for (int i = 0; i <= childrenCount - 1; i++)
-            {
-                string checkobjname = objname;
-                DependencyObject child = FindDescendantByName<T>(VisualTreeHelper.GetChild(obj, i), objname);
-                if (child != null && child is T && objname.ToString().ToLower() == checkobjname.ToString().ToLower())
-                {
-                    return child as T;
-                }
-            }
-
-            return null;
-        }
 
         private void KaartKnop_Click(object sender, RoutedEventArgs e)
         {
@@ -118,7 +70,7 @@ namespace Turismo.Pages
             string naam = r.Name;
 
             AppGlobal.Instance._CurrentSession.SwitchRoute(naam);
-            if (!(AppGlobal.Instance._CurrentSession.FollowedRoute == null) && AppGlobal.Instance._CurrentSession.FollowedRoute.Any())
+            if (!(AppGlobal.Instance._CurrentSession.FollowedRoute == null) && AppGlobal.Instance._CurrentSession.FollowedRoute.Count() == 0)
             {
                 AppGlobal.Instance._CurrentSession.FollowedRoute.Add(AppGlobal.Instance._CurrentSession.CurrentRoute.LocationList.FirstOrDefault());//Weet niet waar deze regel voor is maar ik zag hem staan bij de click methode (click is overbodig geworden)
             }
