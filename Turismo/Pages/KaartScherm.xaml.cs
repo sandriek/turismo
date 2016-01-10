@@ -48,7 +48,8 @@ namespace Turismo.Pages
         private void timer_Tick(object sender, object e)
         {
             RefreshMapLocation();
-            UpdateRouteOnMap();
+            if (AppGlobal.Instance._CurrentSession.GetToFollowRoute().Any())
+                UpdateRouteOnMap();
         }
 
         private async void UpdateRouteOnMap()
