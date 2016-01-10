@@ -33,5 +33,10 @@ namespace Turismo.Pages
         {
             Frame.Navigate(typeof(KaartScherm));
         }
+
+        private void TaalKnop_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(TaalScherm));
+        }
     }
 }

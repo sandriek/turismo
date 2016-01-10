@@ -35,7 +35,7 @@ namespace Turismo.Pages
         public RouteScherm()
         {
             InitializeComponent();
-            // DataContext = RouteSchermViewModel.Instance;
+            DataContext = RouteSchermViewModel.Instance;
 
             //De tekst bovenaan de pagina
             headerString = new MultipleLanguageString("Beschikbare routes", "Available routes");

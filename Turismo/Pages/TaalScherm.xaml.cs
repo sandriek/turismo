@@ -2,6 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,26 +19,17 @@ namespace Turismo.Pages
             DataContext = TaalSchermViewModel.Instance;
         }
 
-        private void TaalGeselecteerd(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(KaartScherm));
-        }
-
         private void NLFlag_Click(object sender, RoutedEventArgs e)
         {
             Data.AppGlobal.Instance._CurrentSession.SwitchLanguage("NL");
-            Frame.Navigate(typeof(KaartScherm));
+            Frame.GoBack();
         }
 
         private void ENFlag_Click(object sender, RoutedEventArgs e)
         {
             Data.AppGlobal.Instance._CurrentSession.SwitchLanguage("EN");
-            Frame.Navigate(typeof(KaartScherm));
+            Frame.GoBack();
         }
 
-        private void KaartKnop_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(KaartScherm));
-        }
     }
 }

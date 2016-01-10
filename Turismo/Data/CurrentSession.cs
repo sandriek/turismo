@@ -85,7 +85,10 @@ namespace Turismo.Data
         public List<Location> GetToFollowRoute()
         {
             List<Location> ToFollow = new List<Location>();
-
+            if(FollowedRoute == null)
+            {
+                FollowedRoute = new List<Location>();
+            }
             if (CurrentRoute != null && FollowedRoute.Any())
             {
                 ToFollow = CurrentRoute.LocationList.Except(FollowedRoute).ToList();

@@ -7,12 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:Name="KaartKnop" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
-        </CommandBar>
-    </Page.BottomAppBar>
-
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="55"></RowDefinition>
