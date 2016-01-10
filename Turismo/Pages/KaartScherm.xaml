@@ -13,7 +13,6 @@
             <CommandBar.PrimaryCommands>
                 <AppBarButton x:Name="TaalKnop" Width="100" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
                 <AppBarButton x:Name="RouteKnop" Width="100"  Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
-                <!--<AppBarButton x:Name="Popup" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>-->
                 <AppBarButton x:Name="pauseButton" Width="100" Icon="pause" Label="Pause" Click="pauseButton_Click">
                 </AppBarButton>
             </CommandBar.PrimaryCommands>

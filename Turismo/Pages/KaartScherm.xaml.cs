@@ -226,6 +226,8 @@ namespace Turismo.Pages
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             AppGlobal.Instance._CurrentSession = new CurrentSession();
+            AppGlobal.Instance.RouteList = new List<Route>();
+            AppGlobal.Instance.SiteList = new List<Site>();
             Frame.Navigate(typeof(MainPage));
         }
     }
