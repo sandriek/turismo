@@ -17,7 +17,7 @@ namespace Turismo.Components
 {
     public class Route
     {
-        public string Name;
+        public MultipleLanguageString Name;
         public List<Location> LocationList;
         public Category.category Category;
         public List<Site> SiteList;
@@ -26,7 +26,7 @@ namespace Turismo.Components
         public MultipleLanguageString Beschrijving;
         public int Afstand;
 
-        public Route(string name, MultipleLanguageString beschrijving, int afstand, Category.category category)
+        public Route(MultipleLanguageString name, MultipleLanguageString beschrijving, int afstand, Category.category category)
         {
             Name = name;
             Beschrijving = beschrijving;
@@ -41,7 +41,7 @@ namespace Turismo.Components
         private void FillLocationList()
         {
             double NorthLatitude = 0.0, WesternLongitude = 0.0;
-            string filename = "Assets/Routes/" + Name + ".txt";
+            string filename = "Assets/Routes/" + Name.Text + ".txt";
             if (File.Exists(filename))
             {
                 string[] route = File.ReadAllLines(filename);
@@ -57,8 +57,6 @@ namespace Turismo.Components
                     {
                         Debug.WriteLine(e.Message);
                     }
-
-
 
                     try
                     {

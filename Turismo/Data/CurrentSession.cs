@@ -36,7 +36,7 @@ namespace Turismo.Data
         public void SwitchRoute(string newRoute)
         {
             Category.category c;
-            MultipleLanguageString mls;
+            MultipleLanguageString mls,name;
             switch (newRoute)
             {
 
@@ -44,13 +44,15 @@ namespace Turismo.Data
                 case "HistorischeRoute":
                     c = Category.category.Historical;
                     mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-                    CurrentRoute = new Route("HistorischeRoute", mls, 1000, c);
+                    name = new MultipleLanguageString("HistorischeRoute", "HistoricRoute");
+                    CurrentRoute = new Route(name, mls, 1000, c);
                     Debug.WriteLine("Route is changed");
                     break;
                 case "Route2":
                     c = Category.category.Cultural;
                     mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");
-                    CurrentRoute = new Route("Route2", mls, 500, c);
+                    name = new MultipleLanguageString("Route2", "Route2");
+                    CurrentRoute = new Route(name, mls, 500, c);
                     Debug.WriteLine("Route is changed");
                     break;
             }
