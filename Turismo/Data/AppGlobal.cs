@@ -35,12 +35,12 @@ namespace Turismo.Data
             this.RouteList.Add(new Route(
                 "HistorischeRoute", 
                 new MultipleLanguageString("Een route langs historische gebouwen in Breda.","A route passing historical buildings found in Breda."), 
-                1, 
+                4, 
                 Category.category.Historical));
             this.RouteList.Add(new Route(
     "Route2",
-    new MultipleLanguageString(" gpahsdfashdfhasdoif hasdfi aoiug oadosfuha isdgifua apisud gyf", "A route passing historical buildings found in Breda."),
-    50,
+    new MultipleLanguageString(" Navigatie terug naar de VVV", "A route passing historical buildings found in Breda."),
+    2,
     Category.category.Historical));
         }
 
