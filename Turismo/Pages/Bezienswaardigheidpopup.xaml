@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
+        <StackPanel Margin="0,59,0,0">
             <TextBlock x:Name="NameText" HorizontalAlignment="Center" FontSize="22" Margin="18" Text=""></TextBlock>
             <Image x:Name="FilePicture"
                HorizontalAlignment="Center" 
@@ -25,5 +25,12 @@
                            />
             </ScrollViewer>
         </StackPanel>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="54" TextWrapping="Wrap" VerticalAlignment="Top" Width="360" FontSize="21.333">
+        	<Run Text="Notification"/>
+        	<Run Text=":"/>
+        	<LineBreak/>
+        	<Run/>
+        </TextBlock>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="21" Margin="0,33,0,0" TextWrapping="Wrap" Text="press the back button to go back" VerticalAlignment="Top" Width="360"/>
     </Grid>
 </Page>
