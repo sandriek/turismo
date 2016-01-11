@@ -39,7 +39,7 @@ namespace Turismo.Data
                 Category.category.Historical));
             this.RouteList.Add(new Route(
     "Route2",
-    new MultipleLanguageString(" Navigatie terug naar de VVV", "A route passing historical buildings found in Breda."),
+    new MultipleLanguageString(" Navigatie terug naar de VVV", "Navigation back to the VVV."),
     2,
     Category.category.Historical));
         }
