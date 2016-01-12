@@ -67,7 +67,7 @@ namespace Turismo.Pages
 
             Route r = (Route)lv.SelectedItem;
 
-            string naam = r.Name;
+            string naam = r.Name.Text;
 
             AppGlobal.Instance._CurrentSession.SwitchRoute(naam);
             if (!(AppGlobal.Instance._CurrentSession.FollowedRoute == null) && AppGlobal.Instance._CurrentSession.FollowedRoute.Count() == 0)

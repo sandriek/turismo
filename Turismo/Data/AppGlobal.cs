@@ -33,15 +33,15 @@ namespace Turismo.Data
         {
             //Nieuwe route aanmaken
             this.RouteList.Add(new Route(
-                "HistorischeRoute", 
+                new MultipleLanguageString("HistorischeRoute", "HistoricRoute"), 
                 new MultipleLanguageString("Een route langs historische gebouwen in Breda.","A route passing historical buildings found in Breda."), 
                 4, 
                 Category.category.Historical));
             this.RouteList.Add(new Route(
-    "Route2",
-    new MultipleLanguageString(" Navigatie terug naar de VVV", "Navigation back to the VVV."),
-    2,
-    Category.category.Historical));
+                new MultipleLanguageString("Route2", "Route2"),
+                new MultipleLanguageString(" Navigatie terug naar de VVV", "Navigation back to the VVV."),
+                2,
+                Category.category.Historical));
         }
 
     }

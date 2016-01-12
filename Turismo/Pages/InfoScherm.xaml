@@ -17,7 +17,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer>
             <StackPanel>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15" Text="Legenda" FontSize="24"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15" Text="{Binding TitleText.Text}" FontSize="24"/>
 
                 <RelativePanel Margin="15,25,0,0">
                     <Image Name="SelfIcon" RelativePanel.AlignLeftWithPanel="True" Height="65"  Width="60" Source="ms-appx:///Assets/icons/pin65.png"/>
