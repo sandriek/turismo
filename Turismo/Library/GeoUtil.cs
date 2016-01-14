@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Turismo.Objects;
+using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Services.Maps;
 
@@ -87,24 +88,29 @@ namespace Turismo.Library
                     ErrorHandler.HandleError("011");
                     return null;
             }
-
             return null;
         }
 
         public async Task<MapRouteFinderResult> GetRoutePoint2Point(List<Location> routeList)
         {
-            List<Geopoint> geoList = new List<Geopoint>();
-            geoList.Add(Cur_Position.Coordinate.Point);
+            try {
+                List<Geopoint> geoList = new List<Geopoint>();
+                geoList.Add(Cur_Position.Coordinate.Point);
 
-            foreach (Location l in routeList)
+                foreach (Location l in routeList)
+                {
+                    geoList.Add(new Geopoint(l.Position));
+                }
+
+                // Get the route between the points.
+                MapRouteFinderResult result = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geoList);
+
+                return result;
+            } catch (Exception)
             {
-                geoList.Add(new Geopoint(l.Position));
+                ErrorHandler.HandleError("010");
+                return null;
             }
-
-            // Get the route between the points.
-            MapRouteFinderResult result = await MapRouteFinder.GetWalkingRouteFromWaypointsAsync(geoList);
-
-            return result;
         }
     }
 }

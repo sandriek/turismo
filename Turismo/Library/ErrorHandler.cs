@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Turismo.Data;
 using Turismo.Objects;
+using Windows.ApplicationModel.Core;
 
 namespace Turismo.Library
 {
@@ -25,6 +26,9 @@ namespace Turismo.Library
                     {
                         dialog.Content = "There are no GPS sensors found. These might be turned off.";
                     }
+                    dialog.Commands.Add(new Windows.UI.Popups.UICommand("Oke") { Id = 0 });
+                    await dialog.ShowAsync();
+                    CoreApplication.Exit();
                     break;
                 case "011":
                     if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
