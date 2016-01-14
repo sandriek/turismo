@@ -22,7 +22,7 @@ namespace Turismo.Data.Objects
         }
 
 
-        private string NL_String;
+        public string NL_String;
         private string EN_String;
 
         //public string Text { get { return GetText(); } }

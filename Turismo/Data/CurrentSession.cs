@@ -40,7 +40,7 @@ namespace Turismo.Data
             switch (newRoute)
             {
 
-                //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt
+                //de cases zijn de namen van de textfiles van de route (gevonden onder Assets/Routes/(naam).txt               
                 case "HistorischeRoute":
                     c = Category.category.Historical;
                     mls = new MultipleLanguageString("Een route langs historische gebouwen in Breda.", "A route passing historical buildings found in Breda.");

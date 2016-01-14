@@ -41,7 +41,7 @@ namespace Turismo.Components
         private void FillLocationList()
         {
             double NorthLatitude = 0.0, WesternLongitude = 0.0;
-            string filename = "Assets/Routes/" + Name.Text + ".txt";
+            string filename = "Assets/Routes/" + Name.NL_String + ".txt";
             if (File.Exists(filename))
             {
                 string[] route = File.ReadAllLines(filename);
