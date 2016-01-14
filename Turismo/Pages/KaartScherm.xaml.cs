@@ -231,5 +231,11 @@ namespace Turismo.Pages
             AppGlobal.Instance.SiteList = new List<Site>();
             Frame.Navigate(typeof(MainPage));
         }
+
+        private async void OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
+        {
+            //http://dotnetbyexample.blogspot.nl/2015/08/windows-10-maps-part-3-querying-map.html
+
+        }
     }
 }

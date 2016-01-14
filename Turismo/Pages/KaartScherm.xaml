@@ -33,6 +33,8 @@
                          TiltInteractionMode="GestureAndControl"
                          RotateInteractionMode="GestureOnly"
                          MapServiceToken="LmASekjs1bjQfxvA4OM3~V85W7tCphoOfYRlRHoYQZQ~Av6XwRGn0FrD0PhSTpCprZy12knFFh-UPKHGvEOnEISST7c5iHqwDbl-oN-TnTuY" 
+                         IsTapEnabled="True"
+                         MapElementClick="OnMapElementClick"
 />
     </Grid>
 </Page>
