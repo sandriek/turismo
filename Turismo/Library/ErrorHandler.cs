@@ -20,11 +20,11 @@ namespace Turismo.Library
                 case "010":
                     if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.NL)
                     {
-                        dialog.Content = "Er zijn geen GPS sensoren gevonden. Deze kunnen mogelijk uitgeschakeld zijn.";
+                        dialog.Content = "Er zijn geen GPS sensoren gevonden. Deze kunnen mogelijk uitgeschakeld zijn. De app sluit nu, zodat u gps aan kunt zetten.";
                     }
                     else if (AppGlobal.Instance._CurrentSession.CurrentLanguage == Language.EN)
                     {
-                        dialog.Content = "There are no GPS sensors found. These might be turned off.";
+                        dialog.Content = "There are no GPS sensors found. These might be turned off. De app will close, so you can switch gps on.";
                     }
                     dialog.Commands.Add(new Windows.UI.Popups.UICommand("Oke") { Id = 0 });
                     await dialog.ShowAsync();
