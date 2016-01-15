@@ -235,7 +235,30 @@ namespace Turismo.Pages
         private async void OnMapElementClick(MapControl sender, MapElementClickEventArgs args)
         {
             //http://dotnetbyexample.blogspot.nl/2015/08/windows-10-maps-part-3-querying-map.html
-
+            try
+            {
+                foreach (Site s in AppGlobal.Instance.SiteList)
+                    if (s.Fence != null)
+                    {
+                        if ((s.Position.Longitude - 0.004) <= args.Location.Position.Longitude && (s.Position.Longitude + 0.004) >= args.Location.Position.Longitude)
+                        {
+                            if ((s.Position.Latitude - 0.004) <= args.Location.Position.Latitude && (s.Position.Latitude + 0.004) >= args.Location.Position.Latitude)
+                            {
+                                AppGlobal.Instance._CurrentSession.CurrentSite = s;
+                                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                                () =>
+                                  {
+                                      BezienswaardigheidPopup();
+                                  });
+                                break;
+                            }
+                        }
+                    }
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }
