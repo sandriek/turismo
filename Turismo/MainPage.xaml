@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="Turismo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Turismo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>        
+        <CommandBar>
+            <AppBarButton x:Name="TaalKnop" Width="103" Icon="Globe" Label="{Binding TaalKnopLabel.Text}" Click="TaalKnop_Click"/>
+            <AppBarButton x:Name="RouteKnop" Width="103" Icon="AlignCenter" Label="{Binding RouteKnopLabel.Text}" Click="RouteKnop_Click"/>
+            <AppBarButton x:Name="KaartKnop" Width="103" Icon="Map" Label="{Binding KaartKnopLabel.Text}" Click="KaartKnop_Click"/>
+            <AppBarButton x:Name="Popup" Width="103" Icon="Bullets" Label="{Binding PopupLabel.Text}" Click="Popup_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="#49B9E8">
+        <Image Source="Assets\Logo1024x1024.png" 
+               Width="200"
+               Height="200"
+               Stretch="Fill" 
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Center"/>
+    </Grid>
+</Page>

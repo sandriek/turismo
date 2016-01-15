@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Turismo.Pages.Bezienswaardigheidpopup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Turismo.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="214"/>
+            <RowDefinition Height="426"/>
+        </Grid.RowDefinitions>-->
+        <StackPanel>
+        <Image x:Name="FilePicture"
+               HorizontalAlignment="Center" 
+               VerticalAlignment="Top"
+               Margin="50,10"
+               MaxWidth="360" MinHeight="214" MaxHeight="214"
+            />
+            <TextBox x:Name="FileText" Text="{Binding CurrentSite.Description.Text}" 
+               VerticalAlignment="Center" TextWrapping="Wrap" 
+               Margin="25"
+               MaxHeight="351" 
+               IsReadOnly="True" BorderThickness="0" MinHeight="351"/>
+        </StackPanel>
+    </Grid>
+</Page>
