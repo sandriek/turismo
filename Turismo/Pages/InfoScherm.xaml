@@ -16,6 +16,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ScrollViewer>
+            <Grid>
             <StackPanel>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15" Text="{Binding TitleText.Text}" FontSize="24"/>
 
@@ -40,6 +41,7 @@
                     <TextBlock TextWrapping="WrapWholeWords" RelativePanel.RightOf="PauseIcon" RelativePanel.AlignVerticalCenterWith="PauseIcon" Margin="15,0" VerticalAlignment="Center" Text="{Binding PauseLabel.Text}"/>
                 </RelativePanel>
                 </StackPanel>
+            </Grid>
         </ScrollViewer>
     </Grid>
 </Page>
